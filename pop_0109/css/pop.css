@@ -19,46 +19,193 @@ li {
   width: 1200px;
   height: 700px;
   margin: 0 auto;
-  background-color: lightblue;
 }
 /* <!-- a/header --> */
 header {
   display: flex;
   width: 100%;
   height: 100px;
-  background-color: pink;
 }
 /* logo */
 .logo {
   width: 200px;
   height: 100%;
-  background-color: lightcoral;
+  padding: 25px 20px;
+  text-align: center;
 }
 /* menu */
 .nav {
   width: 1000px;
   height: 100%;
-  background-color: lightblue;
+  position: relative;
 }
-.gnb{
-    display: flex;
-    background-color: beige;
+/* main menu */
+.gnb {
+  position: absolute;
+  top: 25px;
+  right: 30px;
+  width: 600px;
+  height: 50px;
+  display: flex;
+  z-index: 99;
 }
+.gnb > li > a {
+  /* > 얘는 자식한테만 적용 / 손주 안 됨 ㅋㅋ */
+  width: calc(600px / 4);
+  line-height: 50px;
+  text-align: center;
+  font-weight: bold;
+  border: 1px solid rgb(112, 112, 112);
+  border-right: none;
+}
+.gnb > li:last-child {
+  border-right: 1px solid rgb(113, 113, 113);
+}
+.gnb > li:hover > a {
+  color: #fff;
+  background-color: black;
+}
+.gnb > li:hover .depth2 {
+  display: block;
+}
+/* ㄴ 이거 li말고 gnb에 hover 주면 서브메뉴 전체가 쫘라락 나옴 */
+/* submenu */
+.depth2 {
+  text-align: center;
+  display: none;
+}
+.depth2 > li > a {
+  padding: 10px 0;
+  background-color: #ccc;
+}
+.depth2 > li > a:hover {
+  background-color: white;
+  color: black;
+  font-weight: bold;
+}
+
 /* <!-- b/visual --> */
 .slide {
   width: 100%;
   height: 300px;
-  background-color: white;
+  background-color: rgb(255, 190, 190);
+  position: relative;
+  overflow: hidden;
 }
+.slideall > li {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.slideall > li > a {
+  position: relative;
+}
+/* animation: slide 3s infinite;
+@keyframes slide{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+} */
+.slideall > li > a > img {
+  width: 100%;
+  display: block;
+}
+.slideall > li > a > span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  padding: 10px 40px;
+  transform: translate(-50%, -50%);
+  font-size: 30px;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
 /* <!-- c/contents --> */
 .contents {
   width: 100%;
   height: 200px;
-  background-color: lightseagreen;
+}
+.banner1,
+.banner,
+.imgbox {
+  width: calc(100% / 3);
+  height: 100%;
+  float: left;
+  padding: 10px 10px;
+}
+.banner1 button {
+  padding: 10px 10px;
+  border: none;
+  background-color: rgb(225, 225, 225);
+  font-size: large;
+}
+.banner1 table {
+  width: 100%;
+  background-color: rgb(225, 225, 225);
+}
+.banner1 td {
+  padding: 4px 10px;
+}
+.banner1 td a {
+  display: inline;
+}
+.banner1 tr:nth-child(even) {
+  background-color: #fff;
+}
+.banner1 .date {
+  float: right;
+}
+.contents img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.contents .banner a {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.banner > a > span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  padding: 10px 40px;
+  transform: translate(-50%, -50%);
+  font-size: 30px;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 /* <!-- d/footer --> */
 footer {
   width: 100%;
   height: 100px;
-  background-color: lightcoral;
+  padding: 10px 20px;
+  display: flex;
+}
+.logo1 {
+  width: 200px;
+  padding: 20px;
+  text-align: center;
+  filter: saturate(0);
+}
+.footer,
+.copy {
+  width: 800px;
+  height: calc(100% / 2);
+  text-align: center;
+  float: right;
+  margin: 0 auto;
+}
+.footer li {
+  width: calc(100% / 4);
+  float: left;
+  padding: 10px;
+  margin-left: 40px;
+}
+.copy{
+    padding: 10px;
 }
