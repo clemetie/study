@@ -1,0 +1,64 @@
+@charset "utf-8";
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+a {
+  display: block;
+  text-decoration: none;
+  color: #333;
+}
+ul,
+li {
+  list-style: none;
+}
+/* 모달모달 */
+/* 전체영역 */
+.wrap {
+  width: 1200px;
+  height: 700px;
+  margin: 0 auto;
+  background-color: lightblue;
+}
+/* <!-- a/header --> */
+header {
+  display: flex;
+  width: 100%;
+  height: 100px;
+  background-color: pink;
+}
+/* logo */
+.logo {
+  width: 200px;
+  height: 100%;
+  background-color: lightcoral;
+}
+/* menu */
+.nav {
+  width: 1000px;
+  height: 100%;
+  background-color: lightblue;
+}
+.gnb{
+    display: flex;
+    background-color: beige;
+}
+/* <!-- b/visual --> */
+.slide {
+  width: 100%;
+  height: 300px;
+  background-color: white;
+}
+/* <!-- c/contents --> */
+.contents {
+  width: 100%;
+  height: 200px;
+  background-color: lightseagreen;
+}
+/* <!-- d/footer --> */
+footer {
+  width: 100%;
+  height: 100px;
+  background-color: lightcoral;
+}
