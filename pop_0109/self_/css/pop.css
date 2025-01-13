@@ -191,7 +191,7 @@ footer {
   width: 200px;
   padding: 20px;
   text-align: center;
-  filter: saturate(0);
+  filter: grayscale(1);
 }
 .footer,
 .copy {

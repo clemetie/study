@@ -14,6 +14,37 @@ li {
   list-style: none;
 }
 /* 모달창 */
+.modal {
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.241);
+  position: fixed;
+  z-index: 999999;
+  display: none;
+}
+.modal-inner {
+  width: 300px;
+  /* height: 300px; 높이 주면 글자 수가 많아지면 튕김 높이 없으면 글자수따라 유동적 */
+  background-color: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 30px;
+}
+.modal-title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  text-align: right;
+  width: 70px;
+  padding: 10px 10px;
+  cursor: pointer;
+}
 /* 전체 영역 */
 .wrap {
   width: 1200px;
@@ -25,7 +56,6 @@ li {
   width: 1200px;
   height: 100px;
   display: flex;
-  background-color: aqua;
 }
 /* 로고 */
 .logo {
@@ -33,7 +63,6 @@ li {
   height: 100%;
   line-height: 100px;
   text-align: center;
-  background-color: bisque;
   padding: 10px;
 }
 .logo a img {
@@ -44,7 +73,6 @@ li {
   position: relative;
   width: 1000px;
   height: 100%;
-  background-color: blueviolet;
 }
 /* 메인메뉴 */
 .gnb {
@@ -75,9 +103,9 @@ li {
 /* .gnb:hover .depth2{
     display: block;
 } */
-.gnb > li:hover .depth2 {
+/* .gnb > li:hover .depth2 {
   display: block;
-}
+} */
 /* 서브메뉴 */
 .depth2 {
   background-color: aquamarine;
@@ -96,7 +124,6 @@ li {
   position: relative;
   width: 1200px;
   height: 300px;
-  background-color: rgb(118, 243, 137);
 }
 .slide-all {
   width: 100%;
@@ -117,7 +144,7 @@ li {
 }
 .slide-all > li > a > img {
   width: 100%;
-
+  height: 100%;
   display: block;
 }
 .slide-all > li > a > span {
@@ -135,7 +162,6 @@ li {
   width: 1200px;
   height: 200px;
   display: flex;
-  background-color: rgb(125, 135, 198);
 }
 .contents > div {
   padding: 10px;
@@ -158,10 +184,11 @@ li {
   width: 70px;
   line-height: 30px;
   text-align: center;
-  background-color: rgb(247, 198, 198);
+  padding: 8px 3px;
+  background-color: rgb(157, 216, 244);
 }
 .c1 h4.on {
-  background-color: chartreuse;
+  background-color: rgba(84, 84, 84, 0.307);
 }
 .c1 ul {
   position: absolute;
@@ -169,8 +196,7 @@ li {
   top: 40px;
   left: 10px;
   display: none;
-  padding: 10px 0;
-  margin-top: 10px;
+  padding: 20px 0;
 }
 .c1 ul.on {
   display: block;
@@ -189,7 +215,6 @@ li {
   justify-content: space-between;
   padding: 5px;
   font-size: 13px;
-
   border-bottom: 1px solid #ccc;
 }
 .notice-txt {
@@ -198,15 +223,22 @@ li {
 /* 갤러리 */
 .gal {
   width: calc(100% - 20px);
-  display: flex;
-  justify-content: space-between;
-  background-color: aquamarine;
+  height: 70%;
+  /* display: flex; */
+  /* 위에 클래스 on에서 디스플레이:블락 으로 설정해놔서 플렉스 적용 안 됨 */
+  background-color: rgba(54, 54, 54, 0.232);
+  text-align: center;
+  margin-top: 16px;
+  
+}
+.gal li {
+  float: left;
+  width: calc(100% / 3);
 }
 /* 배너 */
 .c2 {
   width: calc(100% / 3);
   height: 200px;
-  background-color: rgb(255, 189, 127);
 }
 .c2 a,
 .c3 a {
@@ -235,7 +267,6 @@ li {
 .c3 {
   width: calc(100% / 3);
   height: 200px;
-  background-color: rgb(165, 127, 255);
 }
 /* 하단 */
 .footer {
@@ -272,7 +303,7 @@ li {
 .bottom_menu li {
   /* float: left; */
   width: calc(100% / 3);
-  text-align: center; 
+  text-align: center;
   border-right: 1px solid #ddd;
   margin: 2px 0;
 }
