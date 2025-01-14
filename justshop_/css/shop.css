@@ -16,6 +16,7 @@ a {
   width: 1200px;
   height: 800px;
   margin: 0 auto;
+  position: relative;
 }
 /* header */
 header {
@@ -92,7 +93,7 @@ main {
 }
 .slide {
   width: 100%;
-  height: 300px;
+  height: 500px;
   position: relative;
 }
 .slide img {
@@ -100,7 +101,7 @@ main {
   top: 0;
   left: 0;
   width: 100%;
-  height: 300px;
+  height: 500px;
   object-fit: cover;
 }
 .main_top .slide p {
@@ -160,23 +161,47 @@ main {
   width: 70%;
   height: 100%;
 }
-
+.noti ul li:nth-child(even) {
+  background-color: pink;
+}
 .gall,
 .gall ul {
   display: none;
 }
 
 .banner {
-  background-color: lightgray;
+  position: relative;
+}
+.banner img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+.banner span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #0000007c;
+  color: #fff;
+  font-size: 30px;
+  padding: 10px 10px;
 }
 .go {
   width: calc(100% / 3);
   height: 100%;
   background-color: lightskyblue;
 }
+.go img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 /* footer */
 footer {
   width: 100%;
   height: 100px;
   background-color: lightgreen;
+  position: absolute;
+  bottom: 0;
 }
