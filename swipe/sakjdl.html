@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+ul,li{
+    list-style: none;
+
+}
+a{
+    text-decoration: none;
+    color: #333;
+}
+        .box{
+            width: 80%;
+            height: 600px;
+            margin: auto;
+            background-color: pink;
+            z-index: 999;
+        }
+        /* 브라우저가 반응하는 너비값 / 이미지 높이 * 100 = 나오는 값에 vw를 박스에 넣어주셈 */
+        .box img{
+            width: 100%;
+            max-width: 600px;
+            min-width: 600px;
+            height: 100%;
+            max-height: 600px;
+            min-height: 600px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="box">
+        <img src="img/sample1.png" alt="">
+    </div>
+</body>
+</html>
