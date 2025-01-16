@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Link Swiper's CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <!-- JS -->
+    <!-- jquery -->
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <style>
+      html,
+      body {
+        position: relative;
+        height: 100%;
+      }
+
+      body {
+        background: #eee;
+        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        color: #000;
+        margin: 0;
+        padding: 0;
+      }
+
+      .visual-swipper {
+        width: 100%;
+        height: 300px;
+        
+      }
+      .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        background: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .swiper-slide img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    </style>
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="swiper visual-swiper">
+        <!-- ㄴ 기본으로 주는 swiper는 바꾸지말고 myswiper부분은 바꿔야함  -->
+      <div class="swiper-wrapper">
+        <!-- ul로 할 경우에도 swiper-wrapper는 건들지 ㄴㄴ -->
+        <div class="swiper-slide">
+            <!-- ul 쓸 때 div 대신 ul넣거나 이미 있는 ul에 클래스명 복붙해주기 -->
+          <img src="img/sample1.png" alt="샘플1" />
+        </div>
+        <div class="swiper-slide">
+          <img src="img/sample2.png" alt="샘플2" />
+        </div>
+        <div class="swiper-slide">
+          <img src="img/sample3.png" alt="샘플3" />
+        </div>
+        <div class="swiper-slide">
+          <img src="img/sample4.png" alt="샘플4" />
+        </div>
+      </div>
+      <!-- 밑에 있는 버튼, 화살표 등등 아이콘 들어가는 거 -->
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-pagination"></div>
+    </div>
+   
+    </div>
+    <script>
+     var swiper = new Swiper(".visual-swiper", {
+// 위에 myswiper 이름 바꾼 거 여기에도 똑같이 넣어주기
+slidesPerView: 3,
+// 슬라이드 콘텐츠 한 페이지에 몇개 보일 건지!
+      centeredSlides: true,
+    //   슬라이드 콘텐츠가 중간부터 시작해요, 이거 없애면 왼쪽부터 꽉 찬 채로 시이작
+      spaceBetween: 30,
+      //   스와이프 콘텐츠 사이의 간격
+      autoplay: {
+          //   스와이프 자동 플레이 해주는 기능
+        delay: 2500,
+        disableOnInteraction: false,
+      },
+      pagination: {
+          //   스와이퍼 페이지 이름
+        el: ".swiper-pagination",
+        type: "fraction",
+      },
+      navigation: {
+          //   스와이퍼 화살표 버튼
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+    });
+
+    </script>
+  </body>
+</html>
