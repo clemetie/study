@@ -1,0 +1,80 @@
+@charset "utf-8";
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+ul,
+li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+/* 스와이퍼 꾸며주기 기본은 되어있으니 내 스와이프만!! 수정하기 */
+.itemSwiper {
+  width: 80%;
+  /* ㄴ일단 %로 잡아주기 */
+}
+.itemSwiper .swiper-slide {
+  width: 100%;
+}
+.itemSwiper .swiper-slide img {
+  width: 100%;
+  /* display: block; */
+  /* 이미지를 디스플레이 블록으로 바꿔주면 이미지에 남는 마진이 아예 없어짐요 */
+}
+.itemSwiper .itemswiper-txt {
+  padding: 10px 10px;
+  background-color: aquamarine;
+}
+/* visual swiper */
+.visualSwiper {
+  position: relative;
+  width: 100%;
+  /* 600px / 1920(줄어드는 브라우저 시작 픽셀) = 나온 값*100 = 이 값으로 height: vw로 설정하삼 */
+  /* height: 600px; */
+height: 32.65vw;
+  margin: 100px 0;
+
+}
+.visualSwiper img {
+    width: 100%;
+
+}
+.visualSwiper .visualswiper-txt {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #4444448f;
+  padding: 20px 20px;
+  color: #fff;
+  font-size: 30px;
+}
+
+/* 반응형  */
+@media screen and (max-width: 590px) {
+  /* screen말고 all도 가능 */
+  /* 최대 너비가 590px! 590px 아래 크기일 때 설정은? */
+  .itemSwiper .itemswiper-txt {
+    padding: 5px;
+    font-style: italic;
+  }
+  .itemSwiper .itemswiper-txt p:first-child {
+    font-size: 14px;
+    color: #444;
+  }
+}
+@media screen and (max-width: 890px){
+    .visualSwiper .visualswiper-txt{
+        width: 50%;
+        background-color: pink;
+
+    }
+} 
+@media screen and (max-width: 390px){
+.visualSwiper{
+    height: 94.35vw;
+}
+}

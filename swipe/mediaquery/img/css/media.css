@@ -1,0 +1,91 @@
+@charset "utf-8";
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+ul,
+li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color: #333;
+}
+html{
+    font-size: 15px;
+}
+h1{
+    text-align: center;
+    margin: 100px 0;
+    font-size: 5rem;
+    /*  rem이 모냐면 html에 정해놓은 폰트의 5배가 되 . .  */
+}
+h2{
+    text-align: center;
+    font-size: 3vw;
+    /*  화면 width의 3% 크기로 하겠워  너무 작으면 작은 화면에서 안 보이니까 좀 크게 해주셈 ㅈㅂ*/
+    /* 아니면 몇 픽셀 이하로 안 줄어들었으면 좋겠다~ 하면 밑에 반응형css 코드에서 px 정해주셈 */
+}
+.container {
+  position: relative;
+  margin: auto;
+  width: 70%;
+  min-width: 270px;
+  max-width: 650px;
+}
+.container ul {
+  width: 100%;
+  background-color: bisque;
+}
+.card li {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  padding: 10px;
+}
+.card li img {
+  width: 60%;
+}
+.card-txt {
+  width: 40%;
+}
+.card .myimg{
+    display: none;
+}
+
+.container h4{
+  font-size: 2rem;
+}
+/* 반응형 */
+@media screen and (max-width: 768px) {
+  .card li {
+    flex-direction: column;
+    text-align: center;
+}
+html{
+    font-size: 12px;
+}
+  .card li img{
+    width: 100%;
+  }
+  .card-txt {
+    width: 100%;
+    background-color: pink;
+  }
+}
+@media screen and (max-width: 390px){
+    .card-txt{
+        font-size: 10px;
+        display: none;
+    }
+    .card li img{
+        display: none;
+    }
+    .card .myimg{
+        width: 100%;
+        background-color: lightblue;
+        display: block;
+        font-size: 12px;
+    }
+} 
