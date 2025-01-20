@@ -1,0 +1,141 @@
+@charset "utf-8";
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+ul,
+li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+.header {
+  height: 90px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: rgb(128, 228, 128);
+}
+/* logo */
+.logo {
+  width: 30%;
+  padding: 10px;
+}
+.logo img {
+  width: 100%;
+  min-width: 60px;
+  display: block;
+}
+/* menu */
+nav {
+  width: 50%;
+  background-color: lightblue;
+}
+nav .gnb {
+  width: 100%;
+  position: relative;
+  display: flex;
+}
+nav > .gnb:hover .depth2 {
+  display: block;
+}
+nav .gnb > li {
+  width: calc(100% / 5);
+  text-align: center;
+  position: relative;
+}
+nav .gnb > li > a {
+  width: 100%;
+  display: block;
+}
+nav .depth2 {
+  display: none;
+  width: 100%;
+  min-width: 70px;
+  position: absolute;
+  top: 55px;
+  left: 0;
+  text-align: center;
+  background-color: rgb(171, 251, 199);
+}
+nav .depth2 > li > a {
+  line-height: 2;
+  font-size: 12px;
+}
+/* 모바일 메뉴 */
+.mobile-nav {
+  position: fixed;
+  top: 0;
+  right: -300px;
+  width: 250px;
+  height: 100vh;
+  background-color: #333;
+  padding-top: 60px;
+}
+.mobile-nav .gnb {
+  display: flex;
+  flex-direction: column;
+}
+.mobile-nav .gnb > li {
+}
+.mobile-nav .gnb > li > a {
+  display: block;
+  padding: 15px;
+  background-color: #444;
+  color: #fff;
+  font-size: 18px;
+}
+.mobile-nav .depth2 {
+  display: none;
+}
+.mobile-nav .depth2 > li > a {
+  display: block;
+  padding: 10px;
+  background-color: #666;
+  color: white;
+  font-size: 16px;
+}
+
+/* X 버튼 */
+.close-menu {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 25px;
+  cursor: pointer;
+}
+/* mypage */
+.user {
+  width: 15%;
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+}
+.mb-xi {
+  display: none;
+}
+
+@media screen and (max-width: 672px) {
+  nav .gnb {
+    display: none;
+  }
+  .mb-xi {
+    display: block;
+  }
+  .header {
+    padding: 20px;
+  }
+  .user {
+    gap: 10px;
+    min-width: 100px;
+  }
+  .mobile-nav {
+    position: fixed;
+    top: 0;
+    
+  }
+}
+@media screen and (max-width: 390px) {
+}
