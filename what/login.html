@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- font -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <!-- css -->
+    <link rel="stylesheet" href="css/login.css">
+    <title>Sign Up</title>
+</head>
+<body>
+    <div class="container">
+        <!-- 회원가입 -->
+         <h2>회원가입</h2>
+         <form>
+            <div class="input-group">
+              <label for="userName"><i class="fas fa-user"></i></label>
+              <input type="text" placeholder="이름" id="userName" />
+            </div>
+            <div class="input-group">
+              <i class="fas fa-envelope"></i>
+              <input type="email" placeholder="이메일" />
+            </div>
+            <div class="input-group">
+              <i class="fas fa-lock"></i>
+              <input type="password" placeholder="비밀번호" />
+            </div>
+            <div class="input-group">
+              <i class="fas fa-lock"></i>
+              <input type="password" placeholder="비밀번호 확인" />
+            </div>
+            <button type="submit" onclick="alert('로그인이 완료 되었습니다. 메인페이지로 이동하시겠습니까? ')  ">가입하기</button>
+            <!-- 가입하기에 클릭 되었을 때(onclick) alert 창을 연다(alert) -->
+            <input type="button" value="공지 창 열기" onclick="window.open('notice.html')" />
+            <!-- 공지 창 열기에 클릭 되었을 때(onclick) notice.html을 열어라(window.open) !-->
+          </form>
+    </div>
+</body>
+</html>

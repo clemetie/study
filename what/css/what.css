@@ -12,13 +12,16 @@ a {
   text-decoration: none;
   color: #333;
 }
+body{
+  height: 2000px;
+}
 /* nav */
 nav {
   width: 100%;
   position: fixed;
   top: 0;
   left: 0;
-  background-color: pink;
+  background-color: rgb(255, 240, 242);
   display: flex;
   /* 끝에서 정렬 float:right 없이도 오른쪽 정렬 가능 */
   justify-content: flex-end;
@@ -26,6 +29,10 @@ nav {
   align-items: center;
   gap: 20px;
   padding: 20px;
+  z-index: 99;
+}
+nav.scrolled{
+  background-color: rgb(255, 175, 186);
 }
 nav > a:hover {
   text-decoration: underline;
@@ -84,9 +91,10 @@ nav > a:hover {
   width: 70px;
   height: 30px;
   color: white;
-  background-color: #4484f3;
+  background-color: rgb(254, 115, 138);
   border: 0;
   border-radius: 3px;
+  cursor: pointer;
 }
 /* main */
 .main-wrap {
@@ -134,8 +142,130 @@ nav > a:hover {
 .search-icon > a > img {
   width: 100%;
 }
+/* 검색버튼 */
+.plus {
+  width: 50%;
+  margin: auto;
+  max-width: 550px;
+  min-width: 200px;
+}
+.plus ul {
+  display: flex;
+  flex-wrap: wrap;
+  /* 공간에 튕겨 나가는 거 밖에 보내지 말고 공간 안에 넣어라! 줄을 바꿔서든 !! */
+}
+.plus ul li {
+  position: relative;
+  width: calc(100% / 5);
+  max-width: 110px;
+  cursor: pointer;
+}
+.plus ul li a {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  gap: 10px;
+}
+.plus ul li a img {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.bg {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #00000019;
+}
+.plus ul li a span {
+  max-width: 80px;
+  font-size: 14px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  text-align: center;
+}
+/* 검색버튼 호버 */
+.hover-bg {
+  position: absolute;
+  top: 0;
+  right: 50%;
+  transform: translateX(50%);
+  width: 100%;
+  height: 107px;
+  background-color: rgba(0, 0, 0, 0.2);
+  transition: all 0.5s;
+  opacity: 0;
+}
+.hover-bg img {
+  position: absolute;
+  top: 10px;
+  right: 0;
+  opacity: 0;
+  transition: all 1s ease-in-out;
+  transition-delay: 0.1s;
+}
+.plus ul li:hover .hover-bg,
+.plus ul li:hover .hover-bg img {
+  opacity: 1;
+}
+/* 버튼 */
+.btn {
+  display: flex;
+  justify-content: center;
+  margin: 50px auto;
+  gap: 10px;
+  width: 50%;
+}
+.btn button {
+  border: 0;
+  height: 30px;
+  min-width: 100px;
+  padding: 0 15px;
+  background-color: #f4f4f4;
+  border: 1px solid #f4f4f4;
+  color: #666;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.btn button:hover {
+  border: 1px solid #ccc;
+  color: #333;
+  background: linear-gradient(to bottom, #ffffff 0%, #f6f6f6 47%, #ededed 100%);
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+/* 반응형 */
+@media screen and (max-width: 820px) {
+  .plus ul li {
+    width: calc(100% / 4);
+  }
+}
+@media screen and (max-width: 768px) {
+  .plus ul li {
+    width: calc(100% / 3);
+  }
+}
+@media screen and (max-width: 530px) {
+  .plus ul li {
+    width: calc(100% / 2);
+  }
+  .btn {
+    flex-direction: column;
+    width: 30%;
+  }
+}
 @media screen and (max-width: 390px) {
   .search-bar {
     padding: 5px 20px;
+  }
+  .main-wrap > img {
+    width: 200px;
   }
 }
