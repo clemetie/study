@@ -1,0 +1,186 @@
+@charset "utf-8";
+@import url("https://fonts.googleapis.com/css2?family=Alexandria:wght@100..900&family=Noto+Sans+KR:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Orbitron:wght@400..900&family=Poiret+One&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+ul,
+li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color: #333;
+}
+.wrap {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(45deg, #fd83dd, #725cfc);
+}
+/* play,stop btn */
+.wrap .auto {
+  position: absolute;
+  bottom: 60px;
+  left: 60px;
+  display: flex;
+  gap: 10px;
+  color: #fff;
+  font-size: 30px;
+  font-style: italic;
+  opacity: 0.8;
+  z-index: 999;
+}
+.wrap .auto li{
+    transition: all 0.3s;
+    cursor: pointer;
+}
+.wrap .auto li:hover{
+    opacity: 1;
+    transform: scale(1.3);
+  text-shadow: 1px 1px 20px rgba(255, 255, 255, 0.8);
+
+}
+
+/* 제목 */
+.wrap h1 {
+  position: absolute;
+  top: 70px;
+  left: 50px;
+  font-family: "Orbitron", serif;
+  font-weight: normal;
+  font-size: 24px;
+  color: #fff;
+  letter-spacing: 1px;
+}
+.wrap h1 span {
+  opacity: 0.8;
+}
+/* slide */
+
+.wrap .swiper-slide {
+  width: 500px;
+  height: 500px;
+  position: relative;
+  top: 50%;
+  margin-top: -230px;
+}
+.wrap .swiper-slide .inner {
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  padding: 30px;
+  opacity: 0.4;
+}
+
+.wrap .swiper-slide-active .inner {
+  /* swiper-slide-active active는 슬라이드가 작동 됐을 때 ! 실행할 것들 */
+  opacity: 1;
+  box-shadow: 0px 0px 50px rgba(255, 255, 255, 0.8);
+}
+.wrap .swiper-slide .inner::before,
+.wrap .swiper-slide .inner::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  background-color: #fff;
+}
+.wrap .swiper-slide-active .inner::before {
+  animation: ani 1s ease 1;
+}
+.wrap .swiper-slide-active .inner::after {
+  animation: ani 1s ease 0.3s 1;
+  /* before보다 0.3초 뒤에 작동함 */
+}
+@keyframes ani {
+  0% {
+    opacity: 0;
+    transform: scale(1);
+  }
+  1% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.4);
+  }
+}
+/* con */
+.con {
+  position: relative;
+  z-index: 99;
+}
+.con img {
+  width: 100%;
+}
+/* 글자 */
+.con h2 {
+  font-weight: lighter;
+  font-size: 40px;
+  font-family: "roboto";
+  color: #111;
+  margin-top: 15px;
+  margin-bottom: 20px;
+}
+.wrap .swiper-slide .inner .con h2::after {
+  content: "";
+  display: block;
+  width: 20px;
+  height: 1px;
+  background-color: #888;
+  margin-top: 15px;
+  transition: all 0.5s;
+}
+.wrap .swiper-slide-active .inner .con h2::after {
+  width: 150px;
+}
+
+.wrap .inner .con p {
+  font-family: "arial", serif;
+  font-weight: 100;
+  font-size: 13px;
+  font-style: italic;
+  line-height: 1.3;
+  color: #aaa;
+  letter-spacing: 1px;
+}
+/* 좌우버튼 */
+.wrap .swiper-button-prev {
+  left: auto;
+  right: 100px;
+  top: auto;
+  bottom: 50px;
+  filter: grayscale(100%) brightness(3);
+  transform: scale(0.5);
+}
+.wrap .swiper-button-next {
+  left: auto;
+  right: 50px;
+  top: auto;
+  bottom: 50px;
+  filter: grayscale(100%) brightness(3);
+  transform: scale(0.5);
+}
+.wrap .swiper-pagination {
+  width: auto;
+  top: 50px;
+  bottom: auto;
+  left: auto;
+  right: 50px;
+  font-size: 16px;
+  font-family: "Orbitron", serif;
+  color: #eee;
+  letter-spacing: 1px;
+}
+.wrap .swiper-pagination .swiper-pagination-current {
+  font-size: 32px;
+  color: #fff;
+  text-shadow: 1px 1px 20px rgba(255, 255, 255, 0.8);
+}
