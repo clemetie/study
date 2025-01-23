@@ -1,0 +1,146 @@
+@charset "utf-8";
+a {
+  color: #333;
+}
+/* 상단 */
+.header {
+  position: relative;
+  display: block;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+.header .inner {
+  padding: 30px 0;
+}
+.header-up {
+  display: flex;
+  justify-content: space-between;
+  height: 50px;
+}
+.header-up-left {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+/* logo */
+.logo {
+  display: block;
+  width: 118px;
+  height: 50px;
+  background: url("../images/logo.svg") no-repeat center / contain;
+}
+/* search */
+.search {
+  width: 60%;
+  height: 40px;
+  max-width: 455px;
+  background-color: #fff;
+  border-radius: 25px;
+  padding: 0 15px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+.search input {
+  width: 400px;
+  height: 40px;
+  border: none;
+  outline: none;
+}
+.search input::placeholder {
+  color: #a2a2a2;
+  font-size: 13px;
+}url(http://127.0.0.1:5500/index.html)
+/* head-right */
+.header-up-right {
+  display: flex;
+  align-items: center;
+  width: 20%;
+}
+
+.member-list {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  gap: 5%;
+}
+.member-list li {
+  position: relative;
+}
+.member-list > li > a {
+  font-size: 15px;
+  color: #111;
+}
+.mypage-list {
+  display: none;
+  position: absolute;
+  top: 35px;
+  right: 0;
+  background-color: #fff;
+  padding: 20px;
+  width: 130px;
+  font-size: 14px;
+  line-height: 1.2;
+  white-space: nowrap;
+  border-radius: 13px;
+  box-shadow: 0 0 16px rgba(0, 0, 0, 0.2);
+}
+/* addclass */
+.mypage-list.showMypage {
+  display: block;
+}
+
+.member-list li:last-child {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.icon-arrow {
+  width: 8px;
+  height: 5px;
+  display: block;
+  background: url("../images/arrow_pc.svg") no-repeat center;
+}
+.mb-mypage {
+  display: none;
+}
+.header-down {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  text-align: center;
+  font-size: 16px;
+  color: #333;
+  font-weight: 600;
+}
+.service-list {
+  display: flex;
+  align-items: center;
+  gap: 23px;
+}
+.service-list li a {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.service-list li a img {
+  width: 30px;
+  height: 30px;
+  margin-right: 5px;
+}
+.service-menu li {
+  position: relative;
+}
+.service-menu li a {
+  padding: 0 12px;
+}
+.service-menu li a::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 2px;
+  height: 16px;
+  background-color: rgba(0, 0, 0, 0.5);
+}
