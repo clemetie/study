@@ -42,5 +42,42 @@ window.addEventListener("load", function () {
         },
       },
     },
+    navigation: {
+      nextEl: ".tour .sw-next",
+      prevEl: ".tour .sw-prev",
+    },
+  });
+  const swshopping = new Swiper(".sw-shopping", {
+    slidesPerView: 1.3,
+    spaceBetween: 20,
+    grid: {
+      rows: 1,
+      fill: "row",
+    },
+    breakpoints: {
+      480: {
+        spaceBetween: 20,
+        slidesPerView: 2,
+        slidesPerGroup: 2,
+      },
+      768: {
+        spaceBetween: 26,
+        slidesPerView: 3,
+        slidesPerGroup: 3,
+        grid: {
+          rows: 3,
+        },
+      },
+
+      1280: {
+        spaceBetween: 26,
+        slidesPerView: 4,
+        slidesPerGroup: 4,
+      },
+    },
+    navigation: {
+      nextEl: ".shopping .sw-next",
+      prevEl: ".shopping .sw-prev",
+    },
   });
 });

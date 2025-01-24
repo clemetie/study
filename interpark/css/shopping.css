@@ -1,0 +1,41 @@
+@charset "utf-8";
+.sw-shopping .swiper-slide img {
+  width: 100%;
+}
+.good {
+  display: block;
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  background-color: #eee;
+  text-align: center;
+  overflow: hidden;
+}
+.good img {
+  mix-blend-mode: multiply;
+}
+.good-info {
+  background-color: #fff;
+  padding: 7%;
+  text-align: left;
+}
+.good-info-list b {
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: 700;
+}
+.good-info-list b span {
+  color: #ef3e43;
+}
+.good-info-list p {
+  font-size: 15px;
+  line-height: 18px;
+  margin-top: 10px;
+  /* 두줄말줄임 */
+  height: 36px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
