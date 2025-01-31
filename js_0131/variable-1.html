@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>변수선언하기</title>
+  </head>
+  <body>
+    <script>
+      var userName = prompt("이름 적어주세여", "");
+      // 1.변수 선언하기 userName은 prompt에 적힌 값으로 할게
+      var greeting = `하이염 <h1> ${userName} </h1> 님, 방가방가`;
+    //   밑에 함수랑 같은 내용
+    //   var greeting = "하이염"+  userName + "님, 방가방가";
+      // 2.보여지는 부분을 변수 선언하기 greeting은 하이염+userNAme(에담긴내용)+님 으로 할게
+    //   alert(greeting);
+      //   greeting에 담긴 내용 알림창으로 띄워줌
+      document.write(greeting);
+      //   greeting에 담긴 내용 document에 적어줌
+    </script>
+  </body>
+</html>

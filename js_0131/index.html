@@ -8,6 +8,17 @@
   <body>
     <script>
       alert("안녕?");
+      //   홈페이지 로드될 때 알림창 띄워주기 버튼은 확인만 가능
+      confirm("정말 배경 이미지 바꿀 거임?");
+      // 홈페이지에 확인창 띄워주기 버튼이 확인, 취소 두 가지
+      var name = prompt("이름을 입력하세요");
+      // html의 label, input과 비슷함. 입력창은 인풋창에 내용이 됨
+      // prompt에서 인풋창에 받은 결과를 변수에 저장
+      document.write("<b><big>" + name + "</big></b>님, 안녕?");
+      var name;
+      name = prompt("이름을 입력하세요");
+      // 이 두 줄이 위에 있는 var name = prompt("이름을 입력하세요") 얘랑 같은 뜻
+      
     </script>
   </body>
 </html>

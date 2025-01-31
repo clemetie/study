@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var now = new Date()
+      // console.log(now);
+      // document.write(now);
+      var display =  now.toLocaleDateString()
+      // display에는 now에 현재위치의 날짜와 시간을 담아두겠다ㅏ아
+      var date = now.toLocaleTimeString("en-US" , {timeZone: "America/New_york"})
+      document.write(`오늘 날짜는 ${display} 이고, <br> 지금 뉴욕의 시간은 ${date}  입니다`);
+     
+
+
+
+
+      
+    </script>
+  </body>
+</html>

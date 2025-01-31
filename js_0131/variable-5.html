@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // number은 숫자 string은 문자 boolean은 뭐지
+      var num = "205132";
+      //  console.log(typeof num);
+      //  num의 타입을 알려줌 숫자에 따옴표 있으니까 이건 문자(string)임 !
+      var str = "hi";
+      console.log(typeof str);
+      var bool = true;
+      console.log(typeof bool);
+      var globalVar = "호빈";
+      // 전역변수 이 문서 안에 전부 적용할 수 있다
+      function testScope() {
+        var localVar = "기린";
+        // 지역변수 이 문서 전체가 아닌 function 안에서만 적용할 수 있다
+        console.log(localVar);
+        console.log(globalVar);
+        
+      }
+      testScope();
+      // 함수를 사용할 때 함수 한 번 더 적어주면 실행이 됨 ..
+      console.log(globalVar);
+      const PI = 3.14
+      PI = 3.1425485;
+      console.log(PI);
+      // const는 재할당 불가능
+      
+    </script>
+  </body>
+</html>
