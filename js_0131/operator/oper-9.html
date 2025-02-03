@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>비교연산자 예제</title>
+  </head>
+  <body>
+    <h2>로그인</h2>
+    <form>
+      <label for="username">아이디</label>
+      <input type="text" id="username" name="username" /> <br />
+      <label for="password">비밀번호</label>
+      <input type="password" id="password" name="password" /> <br />
+      <button type="button" id="loginBt">LOGIN</button>
+    </form>
+    <p id="message"></p>
+    <script>
+      // 사용자 아이디(username), 비밀번호(password) 더미데이터(storeUser)에 저장
+      const storeUser = {
+        username: "hyobin",
+        password: "1234",
+      };
+      // 버튼 저장
+      const loginBt = document.querySelector("#loginBt");
+      // p저장
+      const message = document.querySelector("#message");
+      loginBt.addEventListener("click", function () {
+        //loginBt을 클릭했을 때
+        //입력되는 데이터를 저장해두어야함
+        const username = document.querySelector("#username").value;
+        //username은 인풋 필드에 입력된 값을 지정 value를 적지 않으면 입력값을 못 받음
+        const password = document.querySelector("#password").value;
+        //username은 인풋 필드에 입력된 값을 지정 value를 적지 않으면 입력값을 못 받음
+        if (
+          username === storeUser.username && //#username input 담아둔 변수이름은 더미데이터(storeUser)의 유저네임과 일치
+          password === storeUser.password //#password input 담아둔 변수이름은 더미데이터(storeUser)의 패스워드와 일치
+        ) {
+          message.textContent = "로그인이 되었습니다."; //username,password에 입력된 값이 둘 다 참이면 if 작동!
+        } else if (username !== storeUser.username) {
+          message.textContent = " 아이디가 맞지않습니다."; //username입력된 값이 틀리면 else if 작동!
+        } else if (password !== storeUser.password) {
+          message.textContent = "비밀번호가 맞지않습니다."; //password 입력된 값이 틀리면 else if 작동!
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>비교연산자 or(||) </title>
+  </head>
+  <body>
+    <!-- <h2>OR연산자 (||) 예제</h2> -->
+    <!-- or을 ||로 사용 -->
+    <p id="demo"></p>
+    <script>
+      let age = prompt("당신의 나이는?", "나이");
+      let mission = false; //지금은 missoin에 대한 질문 없이 그냥 넣어둔 거임, 필요할 때 알아서 넣어보셈
+      if (age > 18 || mission) { //||이게 or이라는 뜻!
+        //if는 참 else는 거짓
+        document.querySelector("#demo").textContent = "추카추카";
+      } else {
+        document.querySelector("#demo").textContent = "ㅠㅠ";
+      }
+      
+    </script>
+  </body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Not 연산자 (!)</title>
+  </head>
+  <body>
+    <p id="demo"></p>
+    <script>
+      let isRaining = false; //isRaining은 false로 지정 
+      let demo = document.querySelector("#demo")
+      if(!isRaining){ //❗isRaning으로 false를 not = 결국 true가 됨 ❗가 반대값을 주는 거.
+       alert("비가 오지 않아용")
+      }
+      else{
+       demo.textContent = "비가 온다요"
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>숫자 증가</title>
+  </head>
+  <body>
+    <button id="btn">Click</button>
+    <p id="counter">클릭 횟수 : 0</p>
+    <script>
+      let clickBtn = document.querySelector("#btn");
+      let counter = document.querySelector("#counter");
+      let count = 0;
+      clickBtn.addEventListener("click", function () {
+        //click버튼에 click을 했을 때 이벤트 추가하기
+        console.log(count); // 0
+        count++; //count가 0을 담아 둔 거니까 count에 바로 ++해주기
+        // ㄴ count++ count 0이 하나씩 증가하는 게 이벤트임
+        console.log(count); // click버튼 누르는 수만큼 늘어남
+        counter.textContent = `클릭 횟수 : ${count} `;
+        //counter = p , textcontent = 클릭 횟수 : 0
+      });
+    </script>
+  </body>
+</html>
