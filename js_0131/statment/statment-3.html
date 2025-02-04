@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>조건문</title>
+    <style>
+      a {
+        text-decoration: none;
+        color: #333;
+      }
+      ul,
+      li {
+        list-style: none;
+      }
+      /* mobile menu toggle */
+      .menu-btn {
+        background-color: #333;
+        color: #fff;
+        border: none;
+        padding: 10px;
+        cursor: pointer;
+        font-size: 20px;
+      }
+      .menu {
+        background-color: #ddd;
+        padding: 10px;
+        display: none;
+      }
+      .menu.open {
+        display: block;
+      }
+      body.dark-mode {
+        background-color: #333;
+      }
+      body.dark-mode .menu-btn {
+        background-color: #fff;
+        color: #333;
+      }
+      /* 메뉴 클릭 */
+      .click-btn {
+        display: block;
+        margin: 50px 0 0;
+      }
+      .click-menu {
+        display: none;
+        margin-bottom: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- mobile menu toggle -->
+    <button class="menu-btn">☰ 메뉴</button>
+    <nav class="menu">
+      <a href="#">HOME</a>
+      <a href="#">SERVICE</a>
+      <a href="#">TEL</a>
+    </nav>
+    <!-- 메뉴 클릭 -->
+    <button class="click-btn">토글메뉴</button>
+    <ul class="click-menu">
+      <li>menu-1</li>
+      <li>menu-2</li>
+      <li>menu-3</li>
+    </ul>
+    <!-- dark mode -->
+    <button id="darkmode-toggle" class="menu-btn">다크 모드</button>
+    <!-- 폼 유효성 검사 -->
+    <form id="signup-form">
+      <br />
+      <input type="text" id="email" placeholder="example@email.com" required />
+      <button type="submit">가입하기</button>
+    </form>
+    <script>
+      //mobile menu toggle
+      let menuBtn = document.querySelector(".menu-btn");
+      let menu = document.querySelector(".menu");
+      menuBtn.addEventListener("click", function () {
+        if (menu.classList.contains("open")) {
+          //만약 메뉴에 클래스 "open"이 있는 지 확인하고 (있는 게 참임!)
+          menu.classList.remove("open");
+          //open이 있으면 메뉴에 클래스 open을 없애고
+        } else {
+          menu.classList.add("open");
+          //open이 없으면 메뉴에 클래스 open을 더해라
+        }
+      });
+      //메뉴클릭
+      let clickBtn = document.querySelector(".click-btn");
+      let clickMenu = document.querySelector(".click-menu");
+      clickBtn.addEventListener("click", function () {
+        if (clickMenu.style.display === "none") {
+          clickMenu.style.display = "block";
+        } else {
+          clickMenu.style.display = "none";
+        }
+      });
+
+      // dark mode
+      let darkModeToggle = document.querySelector("#darkmode-toggle");
+      darkModeToggle.addEventListener("click", function () {
+        //  if(document.body.classList.contains("dark-mode")){
+        //   document.body.classList.remove("dark-mode")
+        //  }
+        //  else{
+        //   document.body.classList.add("dark-mode")
+        //  }
+        document.body.classList.toggle("dark-mode");
+      });
+      //폼 유효성 검사
+      let form = document.querySelector("#signup-form");
+      let emailInput = document.querySelector("#email");
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        if (emailInput.value.indexOf("@") === -1) {
+          alert("이메일에 @가 포함되지 않았다.");
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>조건문</title>
+  </head>
+  <body>
+    <script>
+      let x = 10;
+      if (x > 5) {
+        console.log("x는 5보다 큽니다");
+      } else {
+        console.log("x는 5보다 작습니다");
+      }
+      // 위 아래 같은 거임 ⬆ if,else 다 쓰는 거 
+      // ⬇ 삼항연산자?사용하는 거 
+      x > 5
+        ? console.log("x는 5보다 큽니다") // if랑 같음
+        : console.log("x는 5보다 작습니다"); //else랑 같음
+
+      let x1 = 5;
+      if (x1 < 15) {
+        console.log("x1은 15보다 작습니다");
+      } else if (x1 > 1) {
+        console.log("x1은  1보단 크고 15보다 작습니다.");
+      } else {
+        console.log("x1은 15보다 큽니다");
+      }
+      x1 < 15
+        ? console.log("x1은 15보다 작습니다")
+        : x1 > 1
+        ? console.log("x1은  1보단 크고 15보다 작습니다.")
+        : console.log("x1은 15보다 큽니다");
+    </script>
+  </body>
+</html>

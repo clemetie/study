@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>조건문(날씨)</title>
+  </head>
+  <body>
+    <h1>오늘의 날씨를 선택하세요.</h1>
+    <label for="weatherSelect"> 날씨 선택 :</label>
+    <select name="weatherSelect" id="weatherSelect">
+      <option value="맑음">맑음 🌞</option>
+      <option value="비">비 🌧</option>
+      <option value="구름">구름 ☁</option>
+      <option value="눈">눈 ❄</option>
+      <option value="바람">바람 🌪</option>
+      <option value="엥"></option>
+    </select>
+    <button id="weatherBtn">날씨 확인</button>
+    <h3 id="weatherTxt">
+      <!-- JS로 우다닫다 -->
+    </h3>
+    <script>
+      const weatherSelect = document.querySelector("#weatherSelect");
+      const weatherBtn = document.querySelector("#weatherBtn");
+      const weatherTxt = document.querySelector("#weatherTxt");
+      weatherBtn.addEventListener("click", function () {
+        if (weatherSelect.value.includes("맑음")) {
+          weatherTxt.textContent = "오늘 날씨가 맑아요. 선크림 필수";
+        } else if (weatherSelect.value.includes("비")) {
+          weatherTxt.textContent = "오늘 비 와요. 우산 필수";
+        } else if (weatherSelect.value.includes("구름")) {
+          weatherTxt.textContent = "오늘 구름 많아요. 그냥 집에서 쉬자";
+        } else if (weatherSelect.value.includes("눈")) {
+          weatherTxt.textContent = "오늘 눈 와요. 눈사람 만들러 가자.. ";
+        } else if (weatherSelect.value.includes("바람")) {
+          weatherTxt.textContent = "오늘 바람 많아요. 읏추읏추";
+        } else {
+          weatherTxt.textContent = "";
+        }
+      });
+    </script>
+  </body>
+</html>
