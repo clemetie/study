@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>function 예제 1</title>
+    <!-- 토글메뉴 -->
+    <style>
+      #menu {
+        display: none;
+      }
+      #menu.open {
+        display: block;
+      }
+    </style>
+    <!-- 이미지슬라이드 -->
+    <style>
+      .slider {
+        width: 30%;
+        display: flex;
+      }
+      .slider img {
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 토글메뉴 -->
+    <div>
+      <!-- <button onclick="togglemenu()">메뉴 열기 / 닫기</button> -->
+      <button class="togglemenu">메뉴 열기 / 닫기</button>
+      <nav id="menu">
+        <ul>
+          <li>홈</li>
+          <li>서비스</li>
+          <li>연락처</li>
+        </ul>
+      </nav>
+    </div>
+    <!-- 배경 변경 -->
+    <div>
+      <button onclick="changeColor('pink')">배경 핑크로 바꿈</button>
+      <button onclick="changeColor('lightblue')">배경 블루로 바꿈</button>
+    </div>
+    <!-- 이미지슬라이드 -->
+    <div>
+      <div class="slider">
+        <img src="img/sample1.png" alt="이미지1" />
+        <img src="img/sample2.png" alt="이미지2" style="display: none" />
+        <img src="img/sample3.png" alt="이미지3" style="display: none" />
+      </div>
+    </div>
+    <!-- // 토글메뉴 -->
+    <script>
+      let btn = document.querySelector(".togglemenu");
+      let menu = document.querySelector("#menu");
+      // btn.addEventListener("click", function () {
+      //   menu.classList.toggle("open");
+      // });
+      function togglemenu() {
+        menu.classList.toggle("open");
+      }
+      btn.addEventListener("click", togglemenu);
+    </script>
+    <!-- 배경변경 -->
+    <script>
+      function changeColor(color) {
+        // document.body.style.backgroundColor = color; //얘는 버튼 누르면 바뀌기만 하고 다시 안 돌아옴
+        if (document.body.style.backgroundColor === color) {
+          document.body.style.backgroundColor = "";
+        } else {
+          document.body.style.backgroundColor = color;
+        } //이 코드는 다시 돌아오는 코드
+      }
+    </script>
+    <!-- 이미지슬라이드 -->
+    <script>
+      let currentIndex = 0;
+      const images = document.querySelectorAll(".slider img"); //selectAll은 한꺼번에 담는 거
+      //슬라이드 되는 함수
+      function showslideimg() {
+        //지금 이미지도 숨김(display:none 안 해놓은 이미지)
+        images[currentIndex].style.display = "none"; //currentIndex에 인덱스번호 0을 담아놨고 , 지금 보여지는 이미지의 인덱스 번호가 0이니까  currentIndex를 넣ㄴ는 거임
+        //다음 이미지 인덱스로 변경 (마지막 이미지를 넘으면 첫 인덱스로 돌아오는 코드)
+        currentIndex = (currentIndex + 1) % images.length;
+        // 다음 이미지 보이도록 하기
+        images[currentIndex].style.display = "block";
+      }
+      // showslideimg();
+      setInterval(showslideimg, 3000);
+    </script>
+  </body>
+</html>
