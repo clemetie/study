@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>스타일 가이드 만들기</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <button class="button dark">다크모드</button>
+    <button class="button">장바구니</button>
+    <button class="button">바로가기</button>
+    <button class="button">로그인</button>
+    <script>
+      let dark = document.querySelector(".dark")
+      dark.addEventListener("click" , function(){
+        document.body.classList.toggle("darkmode")
+      })
+    </script>
+  </body>
+</html>

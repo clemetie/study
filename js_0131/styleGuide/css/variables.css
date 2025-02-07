@@ -1,0 +1,24 @@
+@charset "utf-8";
+:root {
+  /* 색 */
+  --primary-color: pink;
+  --secondary-color: lightblue;
+  --sub-color: lightgreen;
+  --darkmode-color: #3c3c3c;
+  /* 버튼 색 */
+  --button-primary-color: rgb(151, 126, 106);
+  --button-hover-color: rgb(66, 55, 47);
+  --button-active-color: rgb(0, 0, 0);
+
+  /* 버튼 패딩 */
+  --button-padding-l: 10px 20px;
+  --button-padding-m: 8px 16px;
+  --button-padding-s: 6px 12px;
+  /*  글자색 */
+  --text-color-light : #222;
+  --text-color-dark : rgb(250, 226, 230);
+  /* 간격 */
+  --spacing-large: 32px;
+  --spacing-medium: 16px;
+  --spacing-small: 8px;
+}

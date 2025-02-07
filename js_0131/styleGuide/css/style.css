@@ -1,0 +1,19 @@
+@charset "utf-8";
+@import url("variables.css");
+@import url("components.css");
+@import url("respon.css");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+ul,
+li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+body.darkmode {
+  background-color: var(--darkmode-color);
+}

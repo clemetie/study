@@ -1,0 +1,13 @@
+@charset "utf-8";
+@media all and (max-width: 768px) {
+  .button {
+    margin-right: var(--spacing-medium);
+    padding: var(--button-padding-m);
+  }
+}
+@media all and (max-width: 390px) {
+  .button {
+    margin-right: var(--spacing-small);
+    padding: var(--button-padding-s);
+  }
+}

@@ -1,0 +1,17 @@
+@charset "utf-8";
+/* 버튼 */
+.button {
+  border: none;
+  margin-right: var(--spacing-large);
+  background-color: var(--button-primary-color);
+  /* css에서는 변수 담아놓은 거 var로 사용 let,const안 씀 */
+  padding: var(--button-padding-l);
+  color: var(--text-color-light);
+}
+.button:hover {
+  background-color: var(--button-hover-color);
+  color: var(--text-color-dark);
+}
+.button:active {
+  background-color: var(--button-active-color);
+}
