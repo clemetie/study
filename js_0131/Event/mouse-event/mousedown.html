@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>click</title>
+    <style>
+      .box {
+        width: 200px;
+        height: 200px;
+        background-color: pink;
+        border: 2px solid lightblue;
+        transition: all 0.5s;
+      }
+      .changecolor {
+        background-color: lightblue;
+        border: 2px solid pink;
+        border-radius: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>마우스다운/오버이벤트</h1>
+    <div class="box"></div>
+    <script>
+      const boxcolor = document.querySelector(".box");
+      boxcolor.addEventListener("mouseover", function () {
+        //mouse뒤에 여러가지 해보셈 , over사용하면 leave도 같이 만들어주기 ! 
+        this.classList.add("changecolor");
+      });
+      boxcolor.addEventListener("mouseleave", function () {
+        this.classList.remove("changecolor");
+      });
+    </script>
+  </body>
+</html>

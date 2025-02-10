@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>텍스트색변경</title>
+    <style>
+      .active {
+        color: pink;
+        border: 1px solid pink;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="btnColor">글자색 변경</button>
+    <p class="txt">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius, ratione asperiores voluptates, sapiente, omnis
+      officiis nesciunt necessitatibus ducimus aspernatur odio porro cumque optio deleniti nostrum numquam! Pariatur
+      dolores culpa accusamus!
+    </p>
+
+    <script>
+      //버튼 활성화 되었을 때 랜덤으로 텍스트색 변경하기
+      const btn = document.querySelector("#btnColor");
+      const txt = document.querySelector(".txt");
+      btn.addEventListener("click", function () {
+        const colors = ["red", "blue", "pink", "green", "lightblue", "white"];
+        const randomindex = Math.floor(Math.random() * colors.length);
+        //인덱스번호를 colors안에 있는 인덱스 번호 안에서 랜덤으로 정해주는 코드
+        const randomColor = colors[randomindex];
+        txt.style.color = randomColor;
+      });
+    </script>
+  </body>
+</html>

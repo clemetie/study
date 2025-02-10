@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>inline-event</title>
+    <style>
+      .active {
+        background-color: yellowgreen;
+      }
+    </style>
+  </head>
+  <body>
+    <button class="btn1">클릭</button>
+    <button class="btn2">클릭ㅎㅎ</button>
+    <script>
+      const btns = document.querySelectorAll("button");
+      //버튼이 여러개니까 all로 전체 선택해서 btns에 담아두고
+      btns.forEach(function (btn) {
+        //btns의 각 요소들 하나하나를 btn(매게변수라 이름 맘대로 해도 됨)에 담고 function하기
+        console.log(btn);
+        //버튼에 추가할 것들 밑에 적어주면 됨
+        btn.onclick = () => {
+          btn.style.backgroundColor = "pink";
+        };
+        btn.addEventListener("click" , function(){
+          btn.classList.toggle("active")
+        })
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>탭 버튼</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        box-sizing: border-box;
+      }
+      a {
+        color: #333;
+        text-decoration: none;
+      }
+      ul {
+        list-style: none;
+        width: 300px;
+        margin: 100px auto;
+        display: flex;
+        justify-content: space-between;
+        text-align: center;
+        background-color: beige;
+      }
+      ul li {
+        border: 1px solid #ccc;
+        width: calc(100% / 3);
+      }
+      ul li:nth-child(2) {
+        border-left: none;
+        border-right: none;
+      }
+      #result {
+        width: 200px;
+        height: 200px;
+        margin: auto;
+        border-radius: 50%;
+        border: 3px solid #ccc;
+      }
+    </style>
+  </head>
+  <body>
+    <ul>
+      <li>
+        <a href="#" id="pink" data-color="pink">pink</a>
+      </li>
+      <li>
+        <a href="#" id="orange" data-color="orange">orange</a>
+      </li>
+      <li>
+        <a href="#" id="purple" data-color="purple">purple</a>
+      </li>
+    </ul>
+    <div id="result"></div>
+    <script>
+      const links = document.querySelectorAll("ul li a");
+      links.forEach(function (item) {
+        console.log(item);
+        item.addEventListener("click", function () {
+          changeBG(this.getAttribute("data-color"));
+          
+        });
+      });
+      function changeBG(color) {
+        const bg = document.getElementById("result");
+        bg.style.backgroundColor = color;
+      }
+    </script>
+  </body>
+</html>

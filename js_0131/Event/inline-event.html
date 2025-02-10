@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>inline-event</title>
+  </head>
+  <body>
+    <button onclick="clickEvent(this)">클릭</button>
+    <input type="text" onfocus="FocusEvent(this)" onblur="blurEvent(this)" />
+    <script>
+      function clickEvent(el) {
+        console.log(el);
+        el.style.color = "pink";
+      }
+      function FocusEvent(el) {
+        console.log("focus on");
+        console.log(el);
+        el.style.color = "pink";
+      }
+      function blurEvent(el) {
+        console.log("focus off");
+        console.log(el);
+      }
+    </script>
+  </body>
+</html>
