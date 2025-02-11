@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>포커스 이벤트</title>
+    <style>
+      :root {
+        --box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        --border-r-l: 10px;
+        --border-r-m: 8px;
+        --border-r-s: 6px;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        background-color: #ccc;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .login-container {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: var(--border-r-l);
+        box-shadow: var(--box-shadow);
+        width: 300px;
+        text-align: center;
+      }
+      input {
+        width: 100%;
+        padding: 10px;
+        margin: 8px 0;
+        border-radius: var(--border-r-s);
+        border: 2px solid #ddd;
+        outline: none;
+      }
+      input:focus {
+        background-color: lightblue;
+      }
+      button {
+        width: 100%;
+        padding: 10px;
+        border: none;
+        background: lightblue;
+        color: #222;
+        font-size: 16px;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 8px;
+      }
+      button:hover {
+        background: rgb(28, 134, 169);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="login-container">
+      <h2>로그인</h2>
+      <input type="text" id="username" placeholder="아이디 입력" />
+      <input type="password" id="password" placeholder="비밀번호 입력" />
+      <button id="loginBtn">로그인</button>
+    </div>
+    <script>
+      const userName = document.querySelector("#username");
+      const userPw = document.querySelector("#password");
+      userName.addEventListener("focus", () => {
+        userName.style.borderColor = "pink";
+        console.log("아이디 포커스");
+      });
+      userPw.addEventListener("focus", () => {
+        userPw.style.borderColor = "pink";
+        console.log("비밀번호 포커스");
+      });
+      userName.addEventListener("blur", () => {
+        userName.style.borderColor = "#ddd";
+        console.log("아이디");
+      });
+      userPw.addEventListener("blur", () => {
+        userPw.style.borderColor = "#ddd";
+        console.log("비밀번호");
+      });
+    </script>
+  </body>
+</html>

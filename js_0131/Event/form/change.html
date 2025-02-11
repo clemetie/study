@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>change Event</title>
+  </head>
+  <body>
+    <h1>항목 선택</h1>
+    <label for="myCB">체크박스</label>
+    <input type="checkbox" name="myCB" id="myCB" />
+    <p id="status">
+      <!-- Js -->
+    </p>
+    <script>
+      const cb = document.querySelector("#myCB");
+      const status = document.querySelector("#status");
+      cb.addEventListener("change", function () {
+        if (cb.checked) {
+          console.log(cb.checked); //true
+          status.textContent = "안녕";
+        } else {
+          status.textContent = "";
+        }
+      });
+    </script>
+  </body>
+</html>

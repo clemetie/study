@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>scroll event</title>
+    <style>
+      body {
+        height: 2000px;
+      }
+      .container {
+        width: 300px;
+        height: 300px;
+        border-radius: 50%;
+        overflow: hidden;
+      }
+      .container img {
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        transition: all 0.5s;
+      }
+      .img.view {
+        opacity: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>scroll event</h1>
+    <div class="container">
+      <img src="잡지 목업 .1.jpg" alt="이미지1" class="img" />
+    </div>
+    <script>
+      window.addEventListener("scroll", function () {
+        const img = document.querySelector(".img");
+        const imgPosition = img.getBoundingClientRect().top; //요소(img)의 경계상자의 정보를 제공
+        const windowHe = window.innerHeight;
+        if (imgPosition < windowHe && imgPosition < 0) {
+          img.classList.add("view");
+        }
+        else{
+          img.classList.remove("view")
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>blur 이벤트</title>
+    <style>
+      #nameError {
+        color: red;
+        font-size: 13px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>blur 이벤트</h1>
+    <label for="input">이름:</label>
+    <input type="text" id="input" placeholder="이름 입력" />
+    <span id="nameError">
+      <!-- 내용 js 출력 -->
+    </span>
+    <script>
+      const input = document.querySelector("#input");
+      const nameError = document.querySelector("#nameError");
+      input.addEventListener("blur", function () {
+        const inputValue = input.value.trim(); //trim() 공백을 제거하는 메서드임
+        console.log(inputValue);
+        if (inputValue === "") {
+          nameError.textContent = "이름을 입력하세요";
+        } else {
+          nameError.style.display = "none";
+        }
+      });
+    </script>
+  </body>
+</html>

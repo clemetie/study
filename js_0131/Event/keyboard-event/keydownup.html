@@ -1,11 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-    
-</body>
+    <style>
+      .box {
+        width: 200px;
+        height: 200px;
+        background-color: pink;
+      }
+      .box1.active {
+        background-color: rgb(56, 162, 255);
+      }
+      .box2.active {
+        background-color: rgb(141, 255, 142);
+      }
+      .box3.active {
+        background-color: rgb(93, 66, 40);
+      }
+      .box4.active {
+        background-color: rgb(255, 78, 196);
+      }
+    </style>
+  </head>
+  <body>
+    <h1>키보드 이벤트</h1>
+    <div class="box box1"></div>
+    <div class="box box2"></div>
+    <div class="box box3"></div>
+    <div class="box box4"></div>
+    <script>
+      function handleKeyup(e) {
+        let key = e.key.toLowerCase();
+        let box = null; //box 변수를 초기화하기 위해서 null값을 할당
+        if (key === "enter") {
+          box = document.querySelector(".box1");
+        } 
+        else if (key === "shift") {
+          box = document.querySelector(".box2");
+        }
+        else if (key === "a") {
+          box = document.querySelector(".box3");
+        }
+        else if (key === "f") {
+          box = document.querySelector(".box4");
+        }
+        if (box != null) {
+          box.classList.add("active");
+        }
+      }
+      document.addEventListener("keyup", handleKeyup);
+    </script>
+  </body>
 </html>
