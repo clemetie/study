@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>tab btn</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        list-style: none;
+      }
+      .menu {
+        display: flex;
+        width: 50%;
+        background-color: pink;
+        margin: 50px auto;
+      }
+      .menu-item {
+        cursor: pointer;
+        flex: 1;
+        text-align: center;
+        padding: 10px;
+        background-color: #f0f0f0;
+      }
+      .menu-item:hover {
+        background-color: #ddd;
+      }
+      .menu-item.active {
+        background-color: #ddd;
+      }
+      .card-wrap {
+        width: 60%;
+        max-width: 600px;
+        min-width: 300px;
+        margin: auto;
+      }
+      .card {
+        display: none;
+        padding: 20px;
+        border: 2px solid #ddd;
+      }
+      .card.active {
+        display: flex;
+        gap: 20px;
+      }
+      .card li {
+        flex: 1;
+        line-height: 1.5;
+      }
+
+      .card li img {
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 탭 메뉴 -->
+    <div class="menu">
+      <div class="menu-item">메뉴 1</div>
+      <div class="menu-item">메뉴 2</div>
+      <div class="menu-item">메뉴 3</div>
+    </div>
+    <!-- 카드영역 -->
+    <div class="card-wrap">
+      <!-- 메뉴-1 카드 -->
+      <ul class="card active">
+        <li>
+          <img src="img/frame (1).png" alt="이미지1" />
+          <h2>설명 1</h2>
+          <p>가격 : 8,000원</p>
+        </li>
+        <li>
+          <img src="img/frame (2).png" alt="이미지2" />
+          <h2>설명 1</h2>
+          <p>가격 : 8,000원</p>
+        </li>
+        <li>
+          <img src="img/frame (3).png" alt="이미지3" />
+          <h2>설명 1</h2>
+          <p>가격 : 8,000원</p>
+        </li>
+      </ul>
+      <!-- 메뉴-2 카드 -->
+      <ul class="card">
+        <li>
+          <img src="img/frame (2).png" alt="이미지2" />
+          <h2>설명 2</h2>
+          <p>가격 : 8,000원</p>
+        </li>
+        <li>
+          <img src="img/frame (3).png" alt="이미지3" />
+          <h2>설명 2</h2>
+          <p>가격 : 8,000원</p>
+        </li>
+        <li>
+          <img src="img/frame (1).png" alt="이미지1" />
+          <h2>설명 2</h2>
+          <p>가격 : 8,000원</p>
+        </li>
+      </ul>
+      <!-- 메뉴-3 카드 -->
+      <ul class="card">
+        <li>
+          <img src="img/frame (3).png" alt="이미지3" />
+          <h2>설명 3</h2>
+          <p>가격 : 8,000원</p>
+        </li>
+        <li>
+          <img src="img/frame (2).png" alt="이미지2" />
+          <h2>설명 3</h2>
+          <p>가격 : 8,000원</p>
+        </li>
+        <li>
+          <img src="img/frame (1).png" alt="이미지1" />
+          <h2>설명 3</h2>
+          <p>가격 : 8,000원</p>
+        </li>
+      </ul>
+    </div>
+    <script>
+      const tabs = document.querySelectorAll(".menu-item");
+      const cards = document.querySelectorAll(".card");
+      tabs[0].classList.add("active");
+      tabs.forEach(function (item, index) {
+        item.addEventListener("click", function () {
+          showCard(index);
+        });
+      });
+      // card-wrap
+      function showCard(index) {
+        tabs.forEach((item) => {
+          item.classList.remove("active");
+        });
+        cards.forEach(function (item) {
+          item.classList.remove("active");
+        });
+        // 카드에 active
+        cards[index].classList.add("active");
+        //탭에 active활성화 시키는 거
+        tabs[index].classList.add("active");
+      }
+    </script>
+  </body>
+</html>

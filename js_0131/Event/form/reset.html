@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>reset event</title>
+  </head>
+  <body>
+    <h1>reset 이벤트</h1>
+    <form id="myform">
+      <label for="name">이름:</label>
+      <input id="name" type="text" />
+      <br />
+      <label for="email">이메일:</label>
+      <input id="email" type="text" />
+      <br />
+      <button type="reset">폼 초기화</button>
+    </form>
+    <script>
+      const form = document.querySelector("#myform");
+      form.addEventListener("reset", function () {
+        alert("초기화됨");
+      });
+    </script>
+  </body>
+</html>
