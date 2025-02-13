@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="container">
+      <h1>웹 프로그래밍</h1>
+      <!-- JS로 P태그 생성 -->
+    </div>
+    <!-- 새로운 영역 만들억임ㅇ -->
+    <div class="notice">
+      <!-- js 출력 -->
+      <!-- <span>안녕하셈</span> -->
+    </div>
+    <script>
+      // p태그생성
+      const newP = document.createElement("p");
+      const txtNode = document.createTextNode("dom은 document object model의 줄임말임.");
+      newP.appendChild(txtNode);
+      document.getElementById("container").appendChild(newP);
+
+      //span 태그 만들기
+      const newSpan = document.createElement("span");
+      // 글자 노드 만들기
+      const txtSpan = document.createTextNode("효빈");
+      newSpan.appendChild(txtSpan);
+      // notice 영역에 연결하기
+      const noti = document.querySelector(".notice");
+      noti.appendChild(newSpan);
+
+
+      //notice에 h2추가하기
+      const h2 = document.createElement("h2"); //태그 먼저 만들고
+      const txtNode2 = document.createTextNode("👅"); //글자노드 만들고
+      h2.appendChild(txtNode2); //태그에 글자 추가하고
+      noti.appendChild(h2); //원하는 곳에 태그 추가하기
+
+    </script>
+  </body>
+</html>

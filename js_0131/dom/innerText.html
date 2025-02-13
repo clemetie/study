@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>innerText , innerHTML 프로퍼티</title>
+  </head>
+  <body>
+    <button class="btninnerText">innerText로 표시</button>
+    <button class="btninnerHtml">innerHtml로 표시</button>
+    <div id="current">
+      <!-- JS출력 -->
+    </div>
+    <script>
+      let now = new Date();
+      const innerT = document.querySelector(".btninnerText");
+      const innerH = document.querySelector(".btninnerHtml");
+      const current = document.querySelector("#current");
+      // innerText
+      innerT.addEventListener("click", () => {
+        current.innerText = `<span> ${now.toDateString()} </span>`;
+      });
+      //innerHtml
+      innerH.addEventListener("click", () => {
+        current.innerHTML = `<span> ${now.toLocaleTimeString()} </span>`;
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      ul {
+        list-style: none;
+      }
+      li {
+        font-size: 20px;
+        line-height: 35px;
+        cursor: pointer;
+      }
+      .check {
+        margin-right: 25px;
+      }
+      .completed {
+        text-decoration: line-through;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>TO DO LIST</h1>
+    <ul>
+      <li><span class="check">💛 </span>TO DO 1</li>
+      <li><span class="check">💛 </span>TO DO 2</li>
+      <li><span class="check">💛 </span>TO DO 3</li>
+      <li><span class="check">💛 </span>TO DO 4</li>
+      <li><span class="check">💛 </span>TO DO 5</li>
+    </ul>
+    <script>
+      const checks = document.querySelectorAll("li");
+      checks.forEach(function (check) {
+        check.addEventListener("click", () => {
+          //   if (this.classList.contains("completed")) {
+          //     this.classList.remove("completed");
+          // }
+          // else{
+
+          //     this.classList.add("completed");
+          //   }
+          check.classList.toggle("completed");
+        });
+      });
+    </script>
+  </body>
+</html>

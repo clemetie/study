@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>속성. .</title>
+  </head>
+  <body>
+    <ol id="list">
+      <li>item</li>
+      <li>item</li>
+      <li>item</li>
+    </ol>
+    <button id="addItemBtn">아이템 추가</button>
+
+    <script>
+      const list = document.querySelector("#list");
+      const addBtn = document.querySelector("#addItemBtn");
+      addBtn.addEventListener("click", function () {
+        
+        //<li>만들기
+        const newItem = document.createElement("li");
+        newItem.textContent = "item";
+        list.appendChild(newItem);
+
+        //<li> 에 class 넣어보기
+        newItem.setAttribute("class", "additem");
+
+        //<li>에 <img> 넣어보기
+        const newImg = document.createElement("img");
+        newImg.setAttribute("src", "blue.png");
+        newImg.setAttribute("alt", "파란컵");
+        list.appendChild(newImg)
+      });
+    </script>
+  </body>
+</html>

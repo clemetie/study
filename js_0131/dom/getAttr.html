@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <a href="https://www.naver.com">네이버</a>
+    <script>
+      const a = document.querySelector("a");
+      const href = a.getAttribute("href");
+      a.setAttribute("href", "https://www.google.com");
+      a.textContent = "구글";
+      a.setAttribute("target", "_blank");
+      a.setAttribute("class", "naver");
+    </script>
+  </body>
+</html>

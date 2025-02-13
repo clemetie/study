@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1 id="title">안녕 하세요!!!</h1>
+    <p class="description">여기는 p태그입니다.</p>
+    <button id="changeTextBtn">클릭하면 글자 변경</button>
+    <script>
+      const title = document.getElementById("title");
+      const p = document.querySelector(".description");
+      const btn = document.querySelector("#changeTextBtn");
+      btn.addEventListener("click", () => {
+        title.innerHTML = `<h4 id = "title"> 방가 </h4>`; //h1안에 안녕하세요!! 가 없어지고 그 자리에 얘가 들어감 
+        p.textContent = "글자 바뀜" //<p>의 글자만 바뀜
+            
+
+      });
+    </script>
+  </body>
+</html>
