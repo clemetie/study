@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Node 추가하고</title>
+    <style>
+      li {
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="wrap">
+      <h1>노드 추가하기</h1>
+      <p>공부할 주제를 기록해 주세요</p>
+      <p>공부가 끝난 것은 클릭해서 삭제할 수 있습니다.</p>
+      <form>
+        <input type="text" id="subject" autofocus />
+        <button class="btn">추가하기</button>
+      </form>
+      <hr />
+      <ol id="itemList">
+        <!-- Js -->
+      </ol>
+    </div>
+    <script>
+      const btn = document.querySelector(".btn");
+      btn.addEventListener("click", (e) => {
+        e.preventDefault();
+        const list = document.createElement("li");
+        const subJ = document.getElementById("subject");
+        const newT = document.createTextNode(subJ.value);
+        list.appendChild(newT);
+        const ulist = document.querySelector("#itemList");
+        ulist.appendChild(list);
+        subJ.value = "";
+        //========추가한 거 지우기=======================
+        const itemli = document.querySelectorAll("#itemList li");
+        itemli.forEach((item) => {
+          item.addEventListener("click", function () {
+            if (this.parentNode) {
+              this.parentNode.removeChild(this);
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

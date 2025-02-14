@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="wrap">
+      <img src="blue.png" alt="컵" id="cup" />
+      <p class="display">
+        <!-- JS출력 -->
+      </p>
+    </div>
+    <script>
+      const cup = document.querySelector("#cup");
+      cup.addEventListener("click", (e) => {
+        const p = document.querySelector(".display");
+        p.innerHTML = `
+        이벤트 유형 : ${e.type} <br>
+        이벤트 발생위치(x) : ${e.pageX} <br>
+        이벤트 발생위치(y) : ${e.pageY} <br>
+        이벤트 타겟 : ${e.target}
+        `;
+      });
+    </script>
+  </body>
+</html>
