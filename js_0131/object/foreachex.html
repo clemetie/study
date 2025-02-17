@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>forEach 예제</title>
+    <style>
+      .product {
+        border: 1px solid #ddd;
+        padding: 10px;
+        margin: 10px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>forEach 예제 : 상품리스트</h1>
+    <div id="product-list">
+      <!-- Js 출력 -->
+    </div>
+    <h2>10만원 이상 상품</h2>
+    <div id="expensive-list">
+      <!-- JS 출력 -->
+    </div>
+    <h2>각 상품의 이름</h2>
+    <div id="product-name">
+      <!-- Js 출력 -->
+    </div>
+    <script>
+      const products = [
+        { id: 1, name: "노트북", price: 1200000 },
+        { id: 2, name: "마우스", price: 25000 },
+        { id: 3, name: "키보드", price: 55000 },
+        { id: 4, name: "모니터", price: 350000 },
+      ];
+
+      // 1. map() 메서드로 상품을 html요소로 반환하기
+      const productHtml = products
+        .map(function (product) {
+          return `<div class="product">
+        <h2>${product.name}</h2>
+        <p>${product.price.toLocaleString()}</p>
+        </div>`;
+        })
+        .join("");
+      document.getElementById("product-list").innerHTML = productHtml;
+
+      // 2. filter() 메서드로 10만원 이상의 상품만 출력하기
+      const expensiveprods = products.filter(function (p) {
+        console.log(p);
+        return p.price >= 100000;
+      });
+      const expensiveHtml = expensiveprods
+        .map(function (p) {
+          return `<div class="product">
+        <h2>${p.name}</h2>
+        <p>${p.price.toLocaleString()}</p>
+        </div>`;
+        })
+        .join("");
+      document.querySelector("#expensive-list").innerHTML = expensiveHtml;
+
+      // 3. forEach() 메서드로 각 상품의 이름만 출력학;
+      let namesHtml = "";
+      products.forEach(function (prod) {
+        namesHtml += `<h2>${prod.name}</h2>`;
+        document.getElementById("product-name").innerHTML = namesHtml;
+      });
+    </script>
+  </body>
+</html>

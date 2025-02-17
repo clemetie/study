@@ -1,0 +1,25 @@
+@charset "utf-8";
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+@media screen and (max-width: 768px) {
+  .button {
+    font-size: var(--font-size-base);
+    padding: var(--spacing-medium);
+  }
+  .input {
+    font-size: var(--font-size-base);
+    padding: var(--spacing-small);
+  }
+}
+@media screen and (max-width: 390px) {
+    .button {
+        font-size: var(--font-size-small);
+        padding: var(--spacing-small);
+    }
+    .input {
+      font-size: var(--font-size-small);
+    }
+}

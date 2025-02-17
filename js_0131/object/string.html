@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>String_object</title>
+  </head>
+  <body>
+    <h1>String 객체</h1>
+    <script>
+      // 1. .length <=속성
+      const str = "hello, javascript";
+      console.log(`1.length: ${str.length}`); // 1.length: 17
+      
+      // 2. toUpperCase(), toLowerCase() <=매서드
+      const text = "Hello";
+      console.log("2. 대문자:", text.toUpperCase()); // HELLO
+      console.log("2. 소문자:", text.toLowerCase()); // hello
+      
+      // 3. includes() <= 매서드 
+      const email = "user@example.com";
+      console.log(email.includes("@")); //true;
+      console.log(`3. #포함 여부: ${email.includes("#")}`); //3. #포함 여부: false
+      
+      // 4. trim() <= 매서드
+      const input = "   h  ello world";
+      console.log(`공백 제거 : ${input.trim()}`); // 공백 제거: hello world
+      console.log(input.length); // 16 공백 포함된 길이임
+      console.log(input.trim().length); // 13 공백 없어진 길이
+      
+      // 5.slice() <= 매서드
+      const str2 = "Cat save world";
+      console.log(`부분 문자열: ${str2.slice(0, 8)}`); // 부분 문자열 : Cat Save 0~8번까지만 놔두고 다 자름
+      // 0은 포함, 8은 미포함 C = 0 .. e = 7
+      
+      // 6.replace() <= 매서드
+      const sen = "Cat Save World";
+      console.log(`6. 문자열 교체: ${sen.replace("World" , "Me")}`); //6. 문자열교체: Cat Save Me
+      
+      //7. split() <= 매서드
+      const data = "apple, plum, orange"
+      console.log(`7. 문자열 분리: ${data.split("")}`); // 7. 문자열 분리: a,p,p,l,e,,, ,p,l,u,m,,, ,o,r,a,n,g,e
+
+
+
+      
+
+
+    </script>
+  </body>
+</html>

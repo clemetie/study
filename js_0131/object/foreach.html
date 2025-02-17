@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Array 비파괴적 메서드</title>
+  </head>
+  <body>
+    <h1>Array 비파괴적 메서드</h1>
+    <script>
+      const arr = [1, 2, 3, 4, 5];
+      // 1. map() <= 매서드 ; 각 요소에 함수 적용 후 새 배열로 반환
+      console.log(`1. map : ${arr.map((x) => x * 2)}`); // 1. map : 2,4,6,8,10
+
+      // 2. filter() <= 매서드 ; 조건에 만족되는 요소만 모아서 새 배열로 반환
+      console.log(`2. filter : ${arr.filter((x) => x > 2)}`); // 2. filter : 3,4,5
+
+      // 3. find() <= 매서드 ; 조건에 만족되는 첫 번째 요소를 반환
+      console.log(`3. find : ${arr.find((x) => x > 2)}`); // 3. find : 3
+
+      // 4. indexOf() <= 매서드 ; 특정 요소의 위치를 반환
+      console.log(`4. indexOf : ${arr.indexOf(3)}`); // 4. indexOf : 2 ; 3의 인덱스 번호는 2임 1이 0이기 때문
+
+      // 5. includes() <= 매서드 ; 특정 요소의 포함 여부 반환
+      console.log(`5. includes : ${arr.includes(3)}`); // 5. includes : true
+      console.log(`5. includes : ${arr.includes(43)}`); // 5. includes : false
+
+      // 6. join() <= 매서드 ; 배열을 문자열로 변환
+      console.log(`6. join : ${arr.join("안녕")}`); // 6. join : 1안녕2안녕3안녕4안녕5
+
+      // 7. foreach() <= 매서드 ; 각 요소에 대해 함수를 실행 ;
+      arr.forEach((x) => console.log(`7. foreach : ${x*2}`))
+      
+    </script>
+  </body>
+</html>

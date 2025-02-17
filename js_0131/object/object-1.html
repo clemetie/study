@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>객체</title>
+  </head>
+  <body>
+    <h1>javascript 표준 내장 객체예제</h1>
+    <script>
+      //javascript 표준 내장 객체
+      //1.String 2.Array 3.Date 4.Math
+      //String 내장 객체
+      const str = "hello world";
+      console.log(str.length); //11; length는 속성
+      console.log(str.toUpperCase()); //HELLO WORLD; toUpperCase() 는 매서드 ()가 있음 . . 전부 대문자로 바꾸기
+      console.log(str.toLowerCase()); //hello world; 얘도 매서드 전부 소문자로 바꾸기
+      console.log(str.includes("l")); //true; 포함되어있나없나..
+      //Array
+      const arr = [1, 2, 3, 4];
+      console.log(arr.length); //4
+      console.log(arr.push(8));
+      console.log(arr); //(5) [1,2,3,4,8]
+      console.log(arr.join("%")); // 1%2%3%4%8;
+      //Date
+      const today = new Date();
+      console.log(today); // Mon Feb 17 2025 09:48:52 GMT+0900
+      console.log(today.toDateString()); //Mon Feb 17 2025 toDateString()는 매서드
+      console.log(today.getFullYear()); // 2025 getFullYear()매서드임
+      console.log(today.getMonth()); // 1; 월은 0부터 출력됨 (1월 = 0, 2월 = 1 ...)
+      //Math
+      console.log(Math.PI); //3.14 .. 원주율
+      console.log(Math.max(10, 5, 8)); //10 최대값을 나타냄
+      console.log(Math.random()); //0~1사이 랜덤으로 보여줌 (난수)
+      
+      
+    </script>
+  </body>
+</html>

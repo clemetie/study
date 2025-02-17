@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Array 객체</h1>
+    <script>
+      const arr = [1, 2, 3, 4, 5];
+      console.log(arr); //>(5) [1,2,3,4,5]
+      // 1. length <= 속성
+      console.log(`1. length: ${arr.length}`); // 1. length: 5
+
+      // 2. push() <= 매서드 ; 배열 끝에 요소 추가
+      console.log(`2. push : ${arr.push("9")}`); // 2. push : 6
+      console.log(`2. push : ${arr}`); // 2. push : 1,2,3,4,5,9
+
+      // 3. pop() <= 매서드 ; 배열의 끝 요소를 제거함
+      arr.pop(); // 9
+      console.log(`3. pop : ${arr}`); // 3. pop : 1,2,3,4,5
+
+      // 4. shift() <= 매서드 ; 배열 첫 요소 제거
+      arr.shift();
+      console.log(`4. shift : ${arr}`); // 4. shift : 2,3,4,5
+
+      // 5. unshift() <= 매서드 ; 배열 앞에 요소 추가
+      arr.unshift(8);
+      console.log(`5. unshift : ${arr}`); // 5. unshift : 8,2,3,4,5
+
+      // 6. indexof() <= 매서드 ; 요소의 위치 반환
+      console.log(`6. indexOf : ${arr.indexOf(4)}`); // 6. indexOf : 3  ; 8 = 0 , 2 = 1, 3 = 2, 4 =3 ..
+
+      // 7. slice() <= 매서드 ; 요소의 일부를 반환
+      console.log(`7. slice : ${arr.slice(0, 2)}`); // 7. slice : 8,2 ; 인덱스번호 0~1 까지만 나옴
+
+      // 8. splice() <= 매서드 ; 배열 요소 추가 / 삭제
+      //arr.splice(시작 인덱스, 삭제할 개수, 추가할 요소)
+      arr.splice(2, 1, 99);
+      console.log(`8. splice : ${arr}`); // 8. splice : 8,2,99,4,5 ;
+      // 인덱스번호 2번이 시작(숫자 3) , 1개 삭제(3이 삭제됨), 99추가(3자리에 99추가됨)
+
+      // 9. join() <= 매서드 ; 배열을 문자열로 변환
+      console.log(`9. join : ${arr.join("^^")}`); // 9. join : 8^^2^^99^^4^^5 ;
+
+      // 10. foreach() <= 매서드 ; 각 요소에 대해 함수를 실행 ; 비파괴적메서드
+      arr.forEach(function (item) {
+        console.log(item); // 8  2  99  4  5 하나씩  
+      });
+
+    </script>
+  </body>
+</html>

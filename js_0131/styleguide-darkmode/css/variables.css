@@ -1,0 +1,77 @@
+@charset "utf-8";
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+:root {
+    /* 색상 */
+   --primary-color: #3498db;
+   --secondary-color: #2ecc71;
+   --background-color-light: #f1f9ca;
+   --background-color-dark: #2c3e50;
+   --text-color-light: #2c3e50;
+   --text-color-dark: #f1f9ca;
+   /*  */
+  
+   /* 버튼 색상 */
+   --button-primary: pink; /* 기본 버튼 색상 */
+   --button-hover: rgb(255, 98, 124); /* 호버 버튼 색상 */
+   --button-active: rgb(255, 0, 43); /* 활성화 시 버튼 색상 */
+   --button-primary-dark: #2d7c1f; /* 다크모드 버튼 기본 색상 */
+   --button-hover-dark: #1f5b14; /* 다크모드 버튼 호버 색상 */
+   --button-active-dark: #10300a; /* 다크모드 버튼 활성화 색상 */
+   --button-text-color: white;
+   /* 폰트 */
+   --font-family: "Arial", sans-serif;
+   --font-size-small: 13px;
+   --font-size-base: 16px;
+   --font-size-large: 24px;
+   --line-height-base: 1.5;
+ 
+   /* 간격 */
+   --spacing-small: 8px;
+   --spacing-medium: 16px;
+   --spacing-large: 32px;
+ 
+   /* 버튼 스타일 */
+  /* 크기 (기본값) */
+  --button-font-size: 16px;
+  --button-padding: 10px 20px;
+  --button-radius: 8px;
+  
+ 
+   /* 테두리 */
+   --border-width: 2px;
+   --border-color: #ccc;
+   --border-radius: 4px;
+ 
+   /* 그리드 */
+   --grid-columns: 12;
+   --grid-gap: 16px;
+ 
+   /* 반응형 디자인 */
+   --sm-screen: 480px;
+   --md-screen: 768px;
+   --lg-screen: 1024px;
+   --xl-screen: 1280px;
+ 
+   /* 아이콘 크기 */
+   --icon-size-small: 16px;
+   --icon-size-medium: 24px;
+   --icon-size-large: 32px;
+   --icon-color: #6c757d;
+   --icon-hover-color: #007bff;
+   /* 입력필드 */
+   --input-bg: #ffffff;
+   --input-border: #ced4da;
+   --input-focus-border: #007bff;
+   --input-radius: 6px;
+   --input-padding: 12px;
+   --input-font-size: 16px;
+
+   /* box shadow */
+   --box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+ }
+ 
+   
