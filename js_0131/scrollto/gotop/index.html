@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Go top</title>
+    <style>
+      body {
+        height: 2000px;
+        margin: 0;
+        padding: 0;
+      }
+      #backToTop {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: rgb(255, 0, 43);
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>go top</h1>
+    <p>스크롤을 내려</p>
+    <button id="backToTop"></button>
+    <script>
+      const backToTopBtn = document.getElementById("backToTop");
+      //버튼 클릭했을 때 위로 스크롤
+      backToTopBtn.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+      //스크롤 이벤트 버튼 보이게 하는 건가
+      window.addEventListener("scroll", () => {
+        if (document.documentElement.scrollTop > 100) {
+          backToTopBtn.style.display = "block";
+          backToTopBtn.textContent = "위로 가기";
+        } else {
+          backToTopBtn.style.display = "none";
+        }
+      });
+    </script>
+  </body>
+</html>

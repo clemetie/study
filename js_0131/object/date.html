@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Date 객체</title>
+  </head>
+  <body>
+    <div id="container">
+      <p>
+        현재 시각 :
+        <span id="current" class="display">
+          <!-- JS -->
+        </span>
+      </p>
+    </div>
+    <script>
+      setInterval(displayNow); //인터벌 하는 함수 (1000이 1초)
+      // 현재 시간 함수
+      function displayNow() {
+        let now = new Date();
+        const currentTime = now.toLocaleTimeString();
+        const display = document.querySelector(".display");
+        display.innerHTML = `${currentTime}`;
+      }
+    </script>
+  </body>
+</html>

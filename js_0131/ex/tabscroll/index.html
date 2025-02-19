@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>빵과일음료아이스크림커피</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        background-color: rgb(255, 235, 238);
+        padding: 50px;
+      }
+      .tabs {
+        display: flex;
+        justify-content: space-around;
+        background-color: #fff;
+      }
+      .tab {
+        flex: 1;
+        padding: 10px 20px;
+        background-color: rgb(255, 235, 238);
+        border: none;
+        cursor: pointer;
+        font-size: 16px;
+        transition: all 0.3s;
+        border-bottom: 2px solid pink;
+      }
+      .tab:hover {
+        background-color: rgb(253, 214, 221);
+      }
+      .tab.active {
+        background-color: pink;
+        border-bottom: 2px solid #ff0062;
+      }
+      .tab.active .tabs {
+        border-bottom: none;
+      }
+      .content {
+        padding: 20px;
+        background-color: #fff;
+        margin: 20px 0;
+        border-radius: 8px;
+        display: none;
+      }
+      .content.active {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="tabs">
+      <button class="tab">음료</button>
+      <button class="tab">빵</button>
+      <button class="tab">커피</button>
+      <button class="tab">아이스크림</button>
+      <button class="tab">과일</button>
+    </div>
+    <div id="drink" class="content">
+      <h2>음료</h2>
+      <p>여기는 음료에 대한 내용입니다.</p>
+    </div>
+    <div id="bread" class="content">
+      <h2>빵</h2>
+      <p>여기는 빵에 대한 내용입니다.</p>
+    </div>
+    <div id="coffee" class="content">
+      <h2>커피</h2>
+      <p>여기는 커피에 대한 내용입니다.</p>
+    </div>
+    <div id="iceCream" class="content">
+      <h2>아이스크림</h2>
+      <p>여기는 아이스크림에 대한 내용입니다.</p>
+    </div>
+    <div id="fruit" class="content">
+      <h2>과일</h2>
+      <p>여기는 과일에 대한 내용입니다.</p>
+    </div>
+    <script>
+      const tabs = document.querySelectorAll(".tab");
+      const contentIds = ["drink", "bread", "coffee", "iceCream", "fruit"];
+      tabs.forEach((tab, index) => {
+        tab.addEventListener("click", () => {
+          showContent(contentIds[index]);
+        });
+      });
+      //탭 클릭 함수
+      function showContent(contentId) {
+        // 모든 탭에 비활성화 먼저 해주기
+        tabs.forEach((tab) => {
+          tab.classList.remove("active");
+        });
+        // 모든 콘텐트에 비활성화 먼저 해주기
+        document.querySelectorAll(".content").forEach((content) => {
+          content.classList.remove("active");
+        });
+
+        const activeIndex = contentIds.indexOf(contentId);
+        if (activeIndex != -1) {
+          tabs[activeIndex].classList.add("active");
+        }
+        document.getElementById(contentId).classList.add("active");
+      }
+    </script>
+  </body>
+</html>

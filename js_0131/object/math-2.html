@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>가위바위보</h1>
+    <script>
+      let game = prompt("가위바위보 뭐 낼래");
+      let gameNum;
+      switch (game) {
+        case "가위":
+          gameNum = 1;
+          break;
+        case "바위":
+          gameNum = 2;
+          break;
+        case "보":
+          gameNum = 3;
+          break;
+        default:
+          alert("땡. 다시 내세요");
+      }
+      let com = Math.floor(Math.random() * 3 + 1);
+      console.log(com); // 1~3 중에 숫자 랜덤으로 나옴
+
+      //이미지 출력하기
+      document.write(`${com}`);
+      document.write(`<img src = "img/${com}.jpg" alt = "${com}">`);
+      if (gameNum === com) {
+        document.write(`<img src = "img/o.jpg" alt = "정답"`);
+      } else {
+        document.write(`<img src = "img/x.jpg" alt = "틀림"`);
+      }
+    </script>
+  </body>
+</html>

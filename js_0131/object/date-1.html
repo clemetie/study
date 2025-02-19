@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Date 객체</title>
+  </head>
+  <body>
+    <script>
+      const prod = [
+        { name: "노트북", date: new Date(2025, 1, 15) },
+        { name: "스마트폰", date: new Date(2025, 1, 16) },
+      ];
+      prod.forEach((item) => {
+        console.log(`이름: ${item.name} 등록일: ${item.date.toLocaleDateString()}`);
+      });
+    </script>
+  </body>
+</html>
