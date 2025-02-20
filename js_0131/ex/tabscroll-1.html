@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        padding: 0 200px;
+      }
+
+      .tabs {
+        display: flex;
+        justify-content: space-around;
+        background-color: #fff;
+        border-bottom: 2px solid #ddd;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+      }
+
+      .tab {
+        padding: 10px 20px;
+        background-color: #f4f4f4;
+        border: none;
+        cursor: pointer;
+        font-size: 16px;
+        position: relative;
+        transition: all 0.3s;
+      }
+
+      .tab:hover {
+        background-color: #ddd;
+      }
+
+      .tab.active {
+        color: #0056b3;
+      }
+
+      .tab.active::after {
+        content: "";
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background-color: #0056b3;
+      }
+
+      .content-container {
+        padding-top: 60px;
+      }
+
+      .content {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        margin-top: 20px;
+        height: 600px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="tabs">
+      <button class="tab" id="tab-drink" onclick="scrollToSection('drink')">음료</button>
+      <button class="tab" id="tab-bread" onclick="scrollToSection('bread')">빵</button>
+      <button class="tab" id="tab-coffee" onclick="scrollToSection('coffee')">커피</button>
+      <button class="tab" id="tab-iceCream" onclick="scrollToSection('iceCream')">아이스크림</button>
+      <button class="tab" id="tab-fruit" onclick="scrollToSection('fruit')">과일</button>
+    </div>
+    <div class="content-container">
+      <div id="drink" class="content"><h2>음료</h2></div>
+      <div id="bread" class="content"><h2>빵</h2></div>
+      <div id="coffee" class="content"><h2>커피</h2></div>
+      <div id="iceCream" class="content"><h2>아이스크림</h2></div>
+      <div id="fruit" class="content"><h2>과일</h2></div>
+    </div>
+    <script>
+      function scrollToSection(sectionId) {
+        const section = document.getElementById(sectionId);
+        console.log(section);
+        const offsetTop = section.offsetTop - document.querySelector(".tabs").offsetHeight;
+        console.log(offsetTop);
+        window.scrollTo({ top: offsetTop, behavior: "smooth" });
+      }
+      window.addEventListener("scroll", () => {
+        const tabs = document.querySelectorAll(".tab");
+        const sections = document.querySelectorAll(".content");
+        let activeSection = "";
+        sections.forEach((section) => {
+          const rect = section.getBoundingClientRect();
+          if (rect.top <= 50 && rect.bottom >= 250) {
+            activeSection = section.id;
+          }
+        });
+        tabs.forEach((tab) => {
+          tab.classList.remove("active");
+          if (tab.id === `tab-${activeSection}`) {
+            tab.classList.add("active");
+            document.body.style.backgroundColor =
+              activeSection === "drink"
+                ? "lightblue"
+                : activeSection === "bread"
+                ? "beige"
+                : activeSection === "coffee"
+                ? "brown"
+                : activeSection === "iceCream"
+                ? "skyblue"
+                : "orange";
+          }
+        });
+        window.addEventListener("DOMContentLoaded", () => {
+          scrollToSection("drink");
+        });
+      });
+    </script>
+  </body>
+</html>

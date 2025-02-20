@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"
+      integrity="sha512-3j3VU6WC5rPQB4Ld1jnLV7Kd5xr+cq9avvhwqzbH/taCRNURoeEpoPBK9pDyeukwSxwRPJ8fDgvYXd6SkaZ2TA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      #noticeWrap {
+        width: 300px;
+        position: absolute;
+        left: 30px;
+        top: 30px;
+        box-shadow: 0 0 8px #000;
+      }
+      #noticeWrap img {
+        width: 100%;
+      }
+      .closeWrap {
+        background-color: #000;
+        color: #fff;
+        text-align: right;
+        padding: 5px 10px;
+      }
+      .closeWrap button {
+        margin-left: 20px;
+        cursor: pointer;
+      }
+    </style>
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="noticeWrap">
+      <img src="../detailPage/coffee (2).jpg" alt="커피2" />
+      <p class="closeWrap">
+        <input type="checkbox" id="check" />
+        <label for="check"> 3일동안 안 볼랭</label>
+        <button class="closeBtn">닫기</button>
+      </p>
+    </div>
+    <script>
+      //제이쿼리임
+      $(function () {
+        if ($.cookie("popup") == "none") {
+          $("#noticeWrap").hide();
+        }
+        let ex = $("#check");
+        $(".closeBtn").on("click", () => {
+          //3일 어쩌구에 체크 되어있을 때
+          if (ex.is(":checked")) {
+            //popup(just name) - 쿠키 만들어주기
+            $.cookie("popup", "none", { expires: 3, path: "/" });
+            //popup이라는 이름의 쿠키를 만들 건데 . . {안에있는애들은속성인듯 아직 모르겠음뭔지}
+          }
+          $("#noticeWrap").fadeOut("fast");
+        });
+      });
+    </script>
+  </body>
+</html>

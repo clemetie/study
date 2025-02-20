@@ -103,7 +103,22 @@
           tabs[activeIndex].classList.add("active");
         }
         document.getElementById(contentId).classList.add("active");
+        //배경변경
+        document.body.style.backgroundColor =
+          contentId === "drink"
+            ? "lightblue"
+            : contentId === "bread"
+            ? "beige"
+            : contentId === "coffee"
+            ? "brown"
+            : contentId === "iceCream"
+            ? "#f4f4f4"
+            : "orange";
       }
+      //페이지 로드될 때 처음 콘텐츠 보이게 하기
+      window.addEventListener("DOMContentLoaded", function () {
+        showContent("drink");
+      });
     </script>
   </body>
 </html>
