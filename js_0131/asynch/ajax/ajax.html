@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ajax예제</title>
+  </head>
+  <body>
+    <script>
+      //  <!-- get 요청으로 데이터 가져오기 -->
+      const xhr = new XMLHttpRequest(); //객체 생성
+      xhr.open("get", "data.json", true); //get으로 data.json 파일 요청 (비동기방식)
+      xhr.onload = function () {
+        //요청 완료되면 실행할 콜백함수
+        if (xhr.status === 200) {
+          const data = JSON.parse(xhr.responseText); //text응답 (json형식)을 객체로 변환하는 거
+          console.log(data.users[2].name);
+          data.users.forEach((item, index) => {
+            console.log(item);
+            console.log(index);
+            document.write(`<h3>${item.id}. 이름: ${item.name}, 
+            나이: ${item.age}</h3>`);
+          });
+        }
+      };
+      xhr.send(); //요청전송해야함
+      // Post 요청으로 데이터 보내기
+      const xhr1 = new XMLHttpRequest(); //객체 생성
+      xhr1.open("post", "ad.php", true); // post 방식으로 php에 요청하기(비동기방식)
+      xhr1.setRequestHeader("content-Type", "application/json"); // 요청 헤더에 json형식으로 지정
+      xhr1.onload = function () {
+        if (xhr1.status === 200) {
+          console.log("데이터 전송 완료!");
+        }
+      };
+      xhr1.send(JSON.stringify({ id: 1, name: "홍길동", age: 25 }));
+    </script>
+  </body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .person-list {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+      }
+      .person-item {
+        border: 1px solid #ddd;
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        background-color: #f9f9f9;
+      }
+      .person-item h2 {
+        margin: 0;
+        font-size: 1.2em;
+      }
+      .person-item p {
+        margin: 5px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="person-list">
+      <!-- JS출력 -->
+    </div>
+    <script>
+      function getPeople() {
+        const xhr = new XMLHttpRequest();
+        xhr.open("get", "ajax.json", true);
+        xhr.onload = function () {
+          if (xhr.status === 200) {
+            const people = JSON.parse(xhr.responseText);
+            displayPeople(people);
+          }
+        };
+        xhr.send();
+      }
+      // html에 데이터 출력하기
+      function displayPeople(people) {
+        console.log(people);
+        const peopleList = document.querySelector(".person-list");
+        peopleList.innerHTML = "";
+        people.forEach((person) => {
+          console.log(person);
+          const newdiv = document.createElement("div");
+          newdiv.classList.add("person-item");
+          newdiv.innerHTML = `<h2>이름: ${person.name}</h2>
+          <p>나이: ${person.age}</p>
+          <p>학생: ${person.isStudent ? "o" : "x"}</p>`;
+          peopleList.appendChild(newdiv);
+        });
+      }
+      getPeople();
+    </script>
+  </body>
+</html>

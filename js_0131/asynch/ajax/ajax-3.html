@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>json 데이터 출력할 때</h1>
+    <script>
+      // json 데이터 출력할 때 - 사진 가져오기
+      const xhr = new XMLHttpRequest();
+      xhr.open("get", "data-3.json", true);
+      xhr.onload = function () {
+        if (xhr.status === 200) {
+          const data = JSON.parse(xhr.responseText);
+          data.forEach((item) => {
+            document.write(`<h2>${item.title}</h2>
+          <img src = "${item.image}" alt = "${item.alt}" />`);
+          });
+        }
+      };
+      xhr.send();
+    </script>
+  </body>
+</html>

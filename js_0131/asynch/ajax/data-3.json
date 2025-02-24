@@ -1,0 +1,17 @@
+[
+  {
+  "title": "AJAX 예제1",
+  "image": "img/sample (3).png",
+  "alt" : "이미지1"
+},
+  {
+  "title": "AJAX 예제2",
+  "image": "img/sample (4).png",
+  "alt" : "이미지2"
+},
+  {
+  "title": "AJAX 예제3",
+  "image": "img/sample (5).png",
+  "alt" : "이미지3"
+}
+]

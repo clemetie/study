@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h2>json 데이터 중 하나만 출력할 때</h2>
+    <script>
+      // json 데이터 중 하나만 출력할 때
+      const xhr = new XMLHttpRequest();
+      xhr.open("get", "data-1.json", true);
+      xhr.onload = function () {
+        if (xhr.status === 200) {
+          const data = JSON.parse(xhr.responseText);
+          document.write(`이름: ${data.name}, 나이: ${data.age}`);
+        }
+      };
+      xhr.send();
+    </script>
+  </body>
+</html>
