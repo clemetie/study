@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        list-style: none;
+      }
+      a {
+        text-decoration: none;
+        color: #333;
+      }
+      #box {
+        width: 500px;
+        margin: 10px auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+      #box ul {
+        display: flex;
+        margin-top: 20px;
+      }
+      #box ul li {
+        padding: 10px 20px;
+      }
+      #box ul li a {
+        padding: 10px 20px;
+        font-weight: bold;
+        background-color: #ccc;
+        transition: background-color 0.3s, color 0.3s;
+      }
+      #box ul li a:hover,
+      #box ul li a.active {
+        background-color: #333;
+        color: #fff;
+      }
+      #info {
+        margin-top: 20px;
+      }
+      .dog-img {
+        width: 100%;
+        height: auto;
+        margin: 30px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="box">
+      <h1>강아지 귀여워</h1>
+      <ul>
+        <li><a href="#" data-dog="이브">이브</a></li>
+        <li><a href="#" data-dog="애플">애플</a></li>
+        <li><a href="#" data-dog="몽지">몽지</a></li>
+      </ul>
+      <div id="info">
+        <!-- JS -->
+      </div>
+    </div>
+    <script>
+      const doglinks = document.querySelectorAll("#box ul li a");
+      doglinks.forEach((link) => {
+        link.addEventListener("click", (e) => {
+          e.preventDefault();
+          showinfo(link.getAttribute("data-dog"), link);
+        });
+      });
+      function showinfo(dogname, el) {
+        console.log(dogname); // link.getAttribute("data-dog")
+        console.log(el); // link
+        const infoDiv = document.getElementById("info");
+        infoDiv.innerHTML = "";
+        fetch("dog.json")
+          .then((response) => response.json()) //객체 없어서 {}랑 return 없이 쓰면 됨
+          .then((doginfo) => {
+            const dog = doginfo[dogname];
+            console.log(dog);
+            infoDiv.innerHTML = `
+          <h2>이름: ${dog.name}</h2>
+          <img src =${dog.image} alt=${dog.name}/>
+          <p>정보 : ${dog.description}</p>`;
+            const allLinks = document.querySelectorAll("#box ul li a");
+            allLinks.forEach((link) => {
+              link.classList.toggle("active", link === el);
+            });
+          })
+          .catch((error) => {
+            infoDiv.textContent = "데이터를 불러오는 중 오류가 발생했습니다.";
+            console.error(error);
+          });
+      }
+    </script>
+  </body>
+</html>

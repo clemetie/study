@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>쇼핑몰 상품 목록</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        text-align: center;
+      }
+      #products {
+        margin: 30px auto;
+        display: flex;
+        justify-content: center;
+        width: 70%;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      .product {
+        width: calc(100% / 5);
+        border: 1px solid #ddd;
+        padding: 20px;
+      }
+      .product img {
+        width: 120px;
+        height: 140px;
+      }
+      h3 {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .loading {
+        color: gray;
+        font-style: italic;
+        padding: 20px;
+      }
+      .error {
+        color: red;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>💟쇼핑몰 상품 목록💟</h1>
+    <div id="status" class="loading"></div>
+    <div id="products">
+      <!-- js -->
+    </div>
+    <script>
+      // 로딩 상태 확인
+      function showstatus(txt, isError = false) {
+        const statusTxt = document.querySelector(".loading");
+        statusTxt.textContent = txt;
+        statusTxt.className = isError ? "error" : "loading";
+      }
+      // 상품 불러오기
+      function displayProducts(products) {
+        const productsContianer = document.getElementById("products");
+        productsContianer.innerHTML = products
+          .map(
+            (product) => `
+        <div class="product">
+        <img src="${product.image}" alt="${product.title}">
+        <h3>${product.title}</h3>
+        <p>💰Price: $${product.price}</p>
+        </div>`
+          )
+          .join("");
+      }
+      // 데이터로 상품 불러오기
+      function loadProducts() {
+        showstatus("➰ 상품을 불러오는 중...");
+        fetch("https://fakestoreapi.com/products")
+          .then((response) => {
+            if (!response.ok) throw new Error("서버 응답 실패");
+            return response.json();
+          })
+          .then((products) => {
+            displayProducts(products);
+            showstatus(`💖 상품 로딩 완료 ! `);
+          })
+          .catch((error) => {
+            showstatus(`💔 상품 로딩 실패 !`, true);
+          });
+      }
+      loadProducts();
+      //   displayProducts()
+    </script>
+  </body>
+</html>

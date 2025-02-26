@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .box {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+      .items-box {
+        display: flex;
+        flex-wrap: wrap;
+      }
+      .item {
+        width: calc(50% - 20px);
+        margin: 10px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        cursor: pointer;
+      }
+      .detail-box {
+        margin-top: 20px;
+        width: 50%;
+      }
+      .detail {
+        border: 1px solid #ccc;
+        padding: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="box">
+      <h1>Items</h1>
+      <div class="items-box" id="items">
+        <!-- JS -->
+      </div>
+      <div class="detail-box" id="detail">
+        <!-- JS -->
+      </div>
+    </div>
+    <script>
+      fetch("items.json")
+        .then((response) => {
+          console.log(response);
+          if (!response.ok) {
+            throw new Error("삐용");
+          }
+          return response.json();
+        })
+        .then((data) => {
+          const itembox = document.querySelector("#items");
+          data.forEach((item) => {
+            console.log(item);
+            const itemEl = document.createElement("div");
+            itemEl.classList.add("item");
+            itemEl.textContent = item.title;
+            itembox.appendChild(itemEl);
+            itemEl.addEventListener("click", () => {
+              showdetail(item);
+            });
+          });
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+      function showdetail(item) {
+        const detailbox = document.querySelector("#detail");
+        detailbox.innerHTML = ` <div class="detail">
+        <h2>${item.title}</h2>
+        <p>${item.description}</p>
+        </div> `;
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>fetch로 데이터 받아오기</title>
+  </head>
+  <body>
+    <div class="display">
+      <!-- JS / content.html -->
+    </div>
+    <div class="display2">
+      <!-- JS / content2.html -->
+    </div>
+    <script>
+      fetch("content.html")
+        .then((response) => {
+          console.log(response);
+          if (!response.ok) {
+            throw new Error("삐용삐용");
+          }
+          return response.text();
+        })
+        .then((data) => {
+          console.log(data);
+          document.querySelector(".display").innerHTML = data;
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+      //content2내용 나오게 하기
+      fetch("content2.html")
+        .then((response) => {
+          console.log(response);
+          return response.text();
+        })
+        .then((data) => {
+          console.log(data);
+          document.querySelector(".display2").innerHTML = data;
+        })
+        .catch((error) => {
+        });
+    </script>
+  </body>
+</html>

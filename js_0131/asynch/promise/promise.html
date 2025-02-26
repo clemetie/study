@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 1. Promise.then() 형식
+      fetch("data.json")
+        .then((response) => response.json()) //json 변환하기
+        .then((data) => {})
+        .catch((error) => console.error(error));
+      // 2. async/await 형식
+      async function loadjson() {
+        try {
+          const response = await fetch("data.json");
+          const data = await response.json();
+        } catch (error) {
+          console.error("삐용");
+        }
+      }
+      loadjson();
+      // 3. promise 형식
+      function getJson(url) {
+        return new Promise((resolve, reject) => {
+          fetch(url)
+            .then((response) => {
+              if (!response.ok) throw new Error("에러");
+              return response.json();
+            })
+            .then((data) => resolve(data))
+            .catch((error) => reject(error));
+        });
+      }
+      getJson("data.json")
+        .then((data) => {
+          console.log(data);
+        })
+        .catch((error) => console.error("에러"));
+    </script>
+  </body>
+</html>
