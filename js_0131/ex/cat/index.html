@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>고양이 귀여워</title>
+    <style>
+      a {
+        text-decoration: none;
+        color: #333;
+      }
+      #catlist {
+        display: flex;
+        margin: 0 auto;
+        flex-wrap: wrap;
+        width: 1000px;
+        /* background-color: aquamarine; */
+        justify-content: space-between;
+      }
+
+      .cat-card {
+        border: 1px solid #ccc;
+        padding: 10px;
+        margin-bottom: 10px;
+        width: calc(30% - 20px);
+        margin: 0 auto;
+        background-color: rgb(230, 202, 149);
+      }
+
+      .cat-image {
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+        display: block;
+        margin: 0 auto;
+      }
+      .pagination {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+      }
+
+      .page-link {
+        margin: 0 5px;
+        padding: 10px 15px;
+        background-color: #3498db;
+        /* 배경색 */
+        color: #fff;
+        /* 글꼴색 */
+        border: none;
+        border-radius: 20px;
+        /* 둥근 모서리 */
+
+        font-weight: bold;
+        transition: background-color 0.3s;
+        /* 호버 효과 */
+      }
+
+      .page-link:hover {
+        background-color: #2980b9;
+        /* 호버 시 배경색 변경 */
+      }
+      .active-page {
+        background-color: #29b96a;
+      }
+      .disabled {
+        background-color: #aaaaaa;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="catlist">
+      <!-- JS -->
+    </div>
+    <div class="pagination" id="pagination">
+      <!-- js -->
+    </div>
+    <script>
+      //   let notice = [];
+      const itemsPerPage = 3;
+      let currentPage = 1;
+      const catList = document.querySelector("#catlist");
+      const paginationDiv = document.getElementById("pagination");
+      const prevBtn = document.createElement("a");
+      const nextBtn = document.createElement("a");
+      //url에서 쿼리문자열을 읽어와서 고양이 아이디를 가져옴. .
+      const urlParams = new URLSearchParams(window.location.search); // URLSearchParams() <= 메서드
+      const catId = urlParams.get("id");
+      //고양이귀여워 정보를 가져와서 화면에 출력하는 함수 만들거얌
+      function displayCatInfo(page) {
+        // console.log(page); // 1;
+        fetch("cat.json")
+          .then((response) => response.json())
+          .then((data) => {
+            //페이지네이션 계산하기
+            const startIndex = (page - 1) * itemsPerPage; // 시작 인덱스 번호를 0으로 만듦
+            const endIndex = startIndex + itemsPerPage; // 페이지당 보여줄 인덱스 마지막 번호 만듦
+            const catsOnPage = data.slice(startIndex, endIndex); //data(cat.json 내용)을 0~2까지만 자름
+            // console.log(catsOnPage); // 고양이json의 인덱스 0~2까지 들어옴
+            catsOnPage.forEach((cat) => {
+              // 0~2까지 총 고양이 3마리만 ! 각 요소로 돌림
+              const catCard = document.createElement("div");
+              catCard.className = "cat-card";
+              catCard.innerHTML = `
+                  <a href="catcate.html?id=${cat.id}">
+                    <img class="cat-image" src="${cat.url}" alt="${cat.title}" />
+                    <h3>😻${cat.title}😻</h3>
+                    <p>특징: ${cat.description} </p>
+                  </a>`;
+              catList.appendChild(catCard);
+            });
+            //페이지네이션 함수 만들기
+            pagination(data.length);
+          })
+          .catch((error) => {
+            console.error(error);
+          });
+      }
+      // 페이지네이션 생성
+      function pagination(totalItems) {
+        // console.log(totalItems); // 10 ; 왜냐면 고양이.json에 객체가 10개임
+        paginationDiv.innerHTML = "";
+        const totalPages = Math.ceil(totalItems / itemsPerPage);
+        for (let i = 1; i <= totalPages; i++) {
+          //   console.log(i);
+          const pageLink = document.createElement("a");
+          pageLink.className = "page-link";
+          pageLink.href = `?id=${catId}&page=${i}`;
+          //   console.log(pageLink);
+          pageLink.textContent = i;
+          if (i === currentPage) {
+            pageLink.classList.add("active-page");
+          }
+          paginationDiv.appendChild(pageLink);
+        }
+        //이전버튼 만들기
+        prevBtn.className = "page-link";
+        // console.log(prevBtn);
+        prevBtn.textContent = "이전";
+        if (currentPage > 1) {
+          prevBtn.href = `?id=${catId}&page=${currentPage - 1}`;
+        } else {
+          prevBtn.classList.add("disabled");
+        }
+        paginationDiv.insertBefore(prevBtn, paginationDiv.firstChild);
+        //다음버튼 만들기
+        nextBtn.className = "page-link";
+        nextBtn.textContent = "다음";
+        if (currentPage < totalPages) {
+          nextBtn.href = `?id=${catId}&page=${currentPage + 1}`;
+        } else {
+          nextBtn.classList.add("disabled");
+        }
+        paginationDiv.appendChild(nextBtn);
+      }
+      // 페이지 로드될 때 고양이 전체 정보 출력하기
+      const pageParam = urlParams.get("page");
+      if (pageParam) {
+        currentPage = parseInt(pageParam)
+      }
+      displayCatInfo(currentPage);
+    </script>
+  </body>
+</html>
