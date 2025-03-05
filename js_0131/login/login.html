@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>로그인</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        display: flex;
+        height: 100vh;
+        justify-content: center;
+        align-items: center;
+        background-color: #f5f5f5;
+      }
+      h1 {
+        text-align: center;
+        color: rgb(250, 127, 148);
+        margin-bottom: 20px;
+      }
+      #signin-form {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0px 0px 10px #9a9a9a;
+      }
+      label {
+        display: block;
+        margin-bottom: 8px;
+        color: rgb(250, 127, 148);
+      }
+      input[type="text"],
+      input[type="password"] {
+        width: 100%;
+        padding: 5px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+        margin-bottom: 20px;
+      }
+      button[type="submit"] {
+        margin-left: 120px;
+        padding: 5px 8px;
+        background: pink;
+        border: none;
+        border-radius: 5px;
+        text-align: center;
+      }
+      button[type="submit"]:hover {
+        background: rgb(250, 127, 148);
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <h1>로그인</h1>
+      <form id="signin-form">
+        <label for="signinUsername">사용자 이름 : </label>
+        <input type="text" name="signinUsername" id="signinUsername" required />
+        <br />
+        <label for="signinUserpw">비밀번호 : </label>
+        <input type="password" name="signinUserpw" id="signinUserpw" />
+        <br />
+        <button type="submit">로그인하기⭐</button>
+      </form>
+    </div>
+    <script>
+      const form = document.querySelector("#signin-form");
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        //사용자 입력한 내용 받아오기
+        const id = signinUsername.value.trim();
+        const pw = signinUserpw.value.trim();
+        const users = JSON.parse(localStorage.getItem("users")) || [];
+
+        const userFind = users.find((user) => user.username === id && user.password === pw);
+        if (userFind) {
+          //로그인 성공하면 정보 가지고 메인으로 갈 거임
+          localStorage.setItem("userFind", JSON.stringify(userFind));
+          alert(`${id} 님! 환영합니다. 로그인 성공!!1 `);
+          window.location.href = `main.html?username=${encodeURIComponent(id)}`;
+        } else {
+          alert("로그인 정보가 일치하지 않습니다. 다시 확인바랍니다.");
+          loginForm.reset();
+        }
+      });
+    </script>
+  </body>
+</html>

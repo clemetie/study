@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>메인페이지</title>
+  </head>
+  <body>
+    <div class="wrap">
+      <div id="signup-section">
+        <button id="signup-button">회원가입</button>
+      </div>
+      <div id="signin-section">
+        <button id="signin-button">로그인</button>
+      </div>
+      <div id="dashboard-section" style="display: none">
+        <div id="username-display">
+          <!-- 로그인된 아이디 출력 -->
+        </div>
+        <button id="logout-button">로그아웃</button>
+      </div>
+    </div>
+    <div class="usersignin" id="usersignin">
+      <!-- 로그인 정보 JS로 출력 -->
+    </div>
+    <script>
+      // 페이지 로드될 때 대시보드 화면에 출력하기
+      window.onload = function () {
+        showinitDashboard();
+      };
+      // 버튼 클릭했을 떄 해당 페이지 이동
+      // 회원가입
+      document.querySelector("#signup-button").addEventListener("click", () => {
+        window.location.href = "signup.html";
+      });
+      // 로그인
+      document.querySelector("#signin-button").addEventListener("click", () => {
+        window.location.href = "login.html";
+      });
+      function showinitDashboard() {
+        let params = new URLSearchParams(window.location.search);
+        console.log(params);
+        let username = params.get("username");
+        console.log(username);
+        if (username) {
+          document.getElementById("signin-section").style.display = "none";
+          document.getElementById("dashboard-section").style.display = "block";
+          document.getElementById("username-display").innerHTML = `<h3> ${username}님 하이요</h3>`;
+          document.getElementById("usersignin").innerHTML = `<h3> 나는 ${username} !</h3>`;
+        } else {
+          document.getElementById("signin-section").style.display = "block";
+          document.getElementById("dashboard-section").style.display = "none";
+          document.getElementById("username-display").innerHTML = ``;
+          document.getElementById("usersignin").innerHTML = ``;
+        }
+      }
+      //로그아웃 기능
+      document.getElementById("logout-button").addEventListener("click", () => {
+        document.getElementById("signin-section").style.display = "block";
+        document.getElementById("dashboard-section").style.display = "none";
+        document.getElementById("username-display").innerHTML = ``;
+        document.getElementById("usersignin").innerHTML = ``;
+        clearusernameParam();
+      });
+
+      function clearusernameParam() {
+        let url = new URL(window.location.href);
+        url.searchParams.delete("username");
+        window.history.replaceState({}, "", url.toString());
+      }
+    </script>
+  </body>
+</html>

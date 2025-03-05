@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>회원가입</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        display: flex;
+        height: 100vh;
+        justify-content: center;
+        align-items: center;
+        background-color: #f5f5f5;
+      }
+      h1 {
+        text-align: center;
+        color: rgb(250, 127, 148);
+        margin-bottom: 20px;
+      }
+      #signup-form {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0px 0px 10px #9a9a9a;
+      }
+      label {
+        display: block;
+        margin-bottom: 8px;
+        color: rgb(250, 127, 148);
+      }
+      input[type="text"],
+      input[type="password"] {
+        width: 100%;
+        padding: 5px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+        margin-bottom: 20px;
+      }
+      button[type="submit"] {
+        margin-left: 120px;
+        padding: 5px 8px;
+        background: pink;
+        border: none;
+        border-radius: 5px;
+        text-align: center;
+      }
+      button[type="submit"]:hover {
+        background: rgb(250, 127, 148);
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <h1>회원가입</h1>
+      <form id="signup-form">
+        <label for="signupUsername">사용자 이름</label>
+        <input type="text" name="signupUsername" id="signupUsername" required />
+        <br />
+        <label for="signupUserpw">비밀번호 : </label>
+        <input type="password" name="signupUserpw" id="signupUserpw" required />
+        <br />
+        <label for="signupUserpwcf">비밀번호 확인: </label>
+        <input type="password" name="signupUserpwcf" id="signupUserpwcf" required />
+        <br />
+        <button type="submit">가입하기⭐</button>
+      </form>
+    </div>
+    <script>
+      const form = document.querySelector("#signup-form");
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        //사용자 입력한 내용 받아오기
+        const usernameInput = document.getElementById("signupUsername");
+        const userpwInput = document.getElementById("signupUserpw");
+        const userpwcfInput = document.getElementById("signupUserpwcf");
+        const username = usernameInput.value.trim();
+        const pw = userpwInput.value.trim();
+        const pwcf = userpwcfInput.value.trim();
+
+        //유효성검사
+        //사용자 이름 비밀번호 정규표현식 사용
+        // 사용자명은 영문자와 숫자로만 이루어져야 합니다.
+        const usernameRegex = /^[a-zA-Z0-9]+$/;
+        // 비밀번호는 최소 4자 이상이어야 합니다.
+        const passwordRegex = /.{4,}/;
+
+        if (!usernameRegex.test(username)) {
+          alert("삐용삐용");
+          return;
+        }
+        if (!passwordRegex.test(pw)) {
+          alert("삐용삐용");
+          return;
+        }
+        //비밀번호 확인
+        if (pw !== pwcf) {
+          alert("삐용삐용");
+          return;
+        }
+        const newuser = {
+          username: username,
+          password: pw,
+        };
+        //로컬저장소에 저장하기
+        //이전 로컬 저장소에 저장된 정보를 사용하기 위해 getitem을 함.
+        //만약 사용자 정보가 없으면 [] <= 빈 배열을 사용함
+        const users = JSON.parse(localStorage.getItem("users")) || [];
+        console.log(users);
+        users.push(newuser);
+        localStorage.setItem("users", JSON.stringify(users));
+        //입력필드 초기화
+        form.reset();
+        alert("가입 끝! 로그인 하러가자")
+        window.location.href = "login.html"
+      });
+    </script>
+  </body>
+</html>
