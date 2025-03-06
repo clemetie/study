@@ -4,11 +4,18 @@ $(function () {
     $(".depthBg").stop().slideToggle(500);
   });
   const slide = $(".slide");
-  const visual = $(".visual");
+  const visual = $(".visual li").width();
+
   const slideShow = () => {
     slide.animate({ marginLeft: -visual }, 1000, function () {
-      $(this).append($(this).find("li:first").css({ marginLeft: 0 }));
+      $(this).append($(this).find("li:first")).css({ marginLeft: 0 });
     });
   };
-  setInterval(slideShow, 3000)
+
+  setInterval(slideShow, 3000);
+  // 탭
+  $(".tab>li>a").click(function (e) {
+    e.preventDefault();
+    $(this).parent().addClass("active").siblings().removeClass("active");
+  });
 });
